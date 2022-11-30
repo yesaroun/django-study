@@ -1,0 +1,24 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Travel Website</title>
+    <link rel="stylesheet" href={% static 'cities/css/styles.css' %}>
+</head>
+<body>
+    <img src={% static 'cities/images/logo.png' %} id="logo" width="165" height="58">
+
+    <div id="menu">
+        <a href="/cities">Home</a>
+        <a href="/cities/seoul/">Seoul</a>
+        <a href="/cities/tokyo/">Tokyo</a>
+        <a href="/cities/paris/">Paris</a>
+    </div>
+
+    <img src={% static 'cities/images/paris.png' %} id="photo" width="90%">
+</body>
+</html>
