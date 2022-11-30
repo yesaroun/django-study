@@ -1,6 +1,44 @@
-<h2>Hello, Django!</h2>
-<p>Code!</p>
-<p>Code!</p>
-<p>Code!</p>
-<p>Code!</p>
-<p>Code!</p>
+{% extends './base.html' %}
+{% load static %}
+
+{% block date-block %}
+    <div>{{ date }}</div>
+{% endblock date-block %}
+
+{% block food-container %}
+    <div class="food">
+      <img src={% static 'foods/images/chicken.jpg' %} width="300px" height="200px"/>
+      <div class="info">
+        <h3>코딩에 빠진 닭</h3>
+        <P>주머니가 가벼운 당신의 마음까지 생각한 가격!</p>
+        <a href="#">메뉴 보기</a>
+      </div>
+    </div>
+
+    <div class="food">
+      <img src={% static 'foods/images/sushi.jpg' %} width="300px" height="200px"/>
+      <div class="info">
+        <h3>코코스시</h3>
+        <P>주머니가 가벼운 당신의 마음까지 생각한 가격!</p>
+        <a href="#">메뉴 보기</a>
+      </div>
+    </div>
+
+    <div class="food">
+      <img src={% static 'foods/images/burger.jpg' %} width="300px" height="200px"/>
+      <div class="info">
+        <h3>코데리아</h3>
+        <P>주머니가 가벼운 당신의 마음까지 생각한 가격!</p>
+        <a href="#">메뉴 보기</a>
+      </div>
+    </div>
+
+    <div class="food">
+      <img src={% static 'foods/images/croquette.jpg' %} width="300px" height="200px"/>
+      <div class="info">
+        <h3>코가네</h3>
+        <P>주머니가 가벼운 당신의 마음까지 생각한 가격!</p>
+        <a href="#">메뉴 보기</a>
+      </div>
+    </div>
+{% endblock food-container %}
