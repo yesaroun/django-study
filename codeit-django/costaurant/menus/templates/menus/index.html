@@ -1,51 +1,48 @@
 {% load static %}
-<!doctype html>
-<html lang="ko">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>코스토랑</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" href={% static 'menus/css/styles.css' %}>
     <link rel="stylesheet" type="text/css"
-          href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+    href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
 </head>
 <body>
-<div id="header">
-    <div class="container">
-        <div class="nav">
-            <a href="index.html"><img src={% static 'menus/images/logo-color.svg' %}></a>
-        </div>
-        <div class="header_txt">
-            <p>오늘도<b>신선한재료</b>로만든요리</p>
-            <h1><img style="width=330; height=89;" src={% static 'menus/images/header-txt.svg' %}></h1>
-        </div>
-    </div>
-</div>
-<div id="content">
-    <div class="container">
-        <div class="content_txt">
-            <h2>오늘의 메뉴</h2>
-            <p class="date-text">{{ date }}</p>
-        </div>
-        <div class="food_container">
-            <div class="food">
-                <img src={% static 'menus/images/chicken.jpg' %}>
-                <div class="info">
-                    <h3>코딩에 빠진 닭</h3>
-                    <p>지금까지 이런 맛은 없었다. 이것은 갈비인가 통닭인가 </p>
-                    <a href="#">메뉴 보기</a></div>
+    <div id="header">
+        <div class="container">
+            <div class="nav">
+                <a href="/menus/"><img src={% static 'menus/images/logo-color.svg' %}></a><!--[A] 로고를 클릭하면 메뉴보기로 가야죠?-->
+            </div>
+            <div class="header_txt">
+                <p>오늘도<b>신선한재료</b>로만든요리</p>
+                <h1><img src={% static 'menus/images/header-txt.svg' %} style="width: 330px; height: 89px;"></h1>
             </div>
         </div>
     </div>
-</div>
-<div id="footer">
-    <div class="container">
-        <div class="footer">
-            <img src={% static 'menus/images/logo-gray.svg' %}>
+    <div id="content">
+       <div class="container">
+            <div class="content_txt">
+                <h2>오늘의 메뉴</h2>
+                <p class="date-text"> {{today}} </p>
+            </div>
+            <div class="food_container">
+                <div class="food">
+                  <img src={%static 'menus/images/chicken.jpg'%}/>
+                  <div class="info">
+                    <h3>코딩에 빠진 닭</h3>
+                    <p>지금까지 이런 맛은 없었다. 이것은 갈비인가 통닭인가 </p>
+                    <a href="/menus/food/chicken">메뉴 보기</a><!--[B] 여기를 클릭하면 detail view를 호출해야해요!-->
+                </div>
+           </div>
+       </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <div class="footer">
+                <img src={% static 'menus/images/logo-gray.svg' %}>
+            </div>
         </div>
     </div>
-</div>
 </body>
 </html>

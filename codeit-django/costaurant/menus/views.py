@@ -6,7 +6,10 @@ from datetime import datetime
 def index_view(request):
     return HttpResponse('<h1>코스토랑 오픈!<h1>')
 
-def index(requeest):
+def index(request):
     today = str(datetime.now().date())
     context = {"date":today}
-    return render(requeest, 'menus/index.html', context=context)
+    return render(request, 'menus/index.html', context=context)
+
+def detail(request, menu):
+    return render(request, 'menus/detail.html')
