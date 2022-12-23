@@ -6,6 +6,9 @@ class Question(models.Model):
     content = models.TextField()                # 글자 수 제한이 없는 경우 TextField()
     create_date = models.DateTimeField()        # 날짜, 시간 관련 속성
 
+    def __str__(self):
+        return self.subject
+
 class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     # ForeingKey : ForeingKey 지정
