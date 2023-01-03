@@ -1,0 +1,47 @@
+# Service: Instagram
+## User(유저)
+## - id
+## - pw
+## - email
+## - nickname
+## - phone
+## - profileImg
+## - Follow (팔로우)
+## - Feed(게시글)
+## - profileIntroduce
+## - created_at
+## - updated_at
+## - is_business (Boolean)
+
+## Feed
+## - User
+## - img
+## - created_at
+## - updated_at
+## - like
+## - content
+## - Review (댓글)
+
+
+## Review(댓글)
+## - User
+## - Feed
+## - content
+## - like
+## - created_at
+## - updated_at
+## - reply
+
+
+## Story (스토리)
+## - User
+## - img
+## - textMsg
+## - created_at
+## - updated_at
+## - like
+
+
+## Common (중복되는 데이터)
+## - created_at
+## - updated_at

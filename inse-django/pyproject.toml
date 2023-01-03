@@ -9,6 +9,7 @@ packages = [{include = "inse_django"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 django = "^4.1.4"
+pillow = "^9.4.0"
 
 
 [build-system]
