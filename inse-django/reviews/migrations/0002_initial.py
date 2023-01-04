@@ -10,14 +10,14 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+        ('reviews', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('feed', '0001_initial'),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='feed',
-            name='user_id',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            model_name='review',
+            name='user',
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
         ),
     ]
