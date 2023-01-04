@@ -1,8 +1,10 @@
 from django.db import models
 from users.models import User
+from common.models import CommonModel
 
 
-class Feed(models.Model):
+class Feed(CommonModel):
+# class Feed(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     img = models.ImageField(blank=True, null=True)
     like = models.PositiveIntegerField()
