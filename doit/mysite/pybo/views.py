@@ -41,7 +41,7 @@ def question_create(request):
             question.create_date = timezone.now()
             question.save()
             return redirect('pybo:index')
-        else:
-            form = QuestionForm()
-        context = {'form': form}
-        return render(request, 'pybo/question_form.html', context)
+    else:
+        form = QuestionForm()
+    context = {'form': form}
+    return render(request, 'pybo/question_form.html', context)
