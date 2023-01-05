@@ -1,0 +1,11 @@
+<h1>장고로 만들어진 HTML 홈페이지 입니다.</h1>
+
+<h1>{{ title }}</h1>
+
+<ul>
+  {% for feed in datas %}
+    <li>
+      {{feed.content}} / {{feed.like}} / {{feed.user.username}}
+    </li>
+  {% endfor %}
+</ul>
