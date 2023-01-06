@@ -5,9 +5,7 @@ from ..models import Question
 
 
 def index(request):
-    """
-    pybo 목록 출력
-    """
+    """ pybo 목록 출력 """
     # 입력 파라미터
     page = request.GET.get('page', '1')  # 페이지
 
