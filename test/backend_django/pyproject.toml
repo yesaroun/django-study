@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "backend-django"
+version = "0.1.0"
+description = ""
+authors = ["yesaroun <akor1@naver.com>"]
+readme = "README.md"
+packages = [{include = "backend_django"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.1.5"
+djangorestframework = "^3.14.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

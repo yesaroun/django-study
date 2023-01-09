@@ -10,8 +10,8 @@ class CustomUserAdmin(UserAdmin):
                 "fields": ("password", "name", "email", "is_business", "gender"),
                 "classes": ("wide",),
             },
-        ),
-        ("Permissions",{
+        ) ,
+        ("Permissions", {
                 "fields": (
                     "is_active",
                     "is_staff",
@@ -19,7 +19,7 @@ class CustomUserAdmin(UserAdmin):
                     "user_permissions",
                 ),
             },
-        ),
+        ) ,
         ("Important Dates", {
                 "fields": ("last_login", "date_joined"),
                 "classes": ("collapse",),
