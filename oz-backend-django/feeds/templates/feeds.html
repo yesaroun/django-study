@@ -1,0 +1,9 @@
+<!-- <h1>Show All Feed</h1> -->
+
+<ul> 
+    {% for feed in feeds %} 
+    <a href="/feeds/{{feed.id}}">
+        <li>{{ feed.id }} / {{feed.content}} / {{feed.user.username}}</li> 
+    {% endfor %} 
+    </a>
+</ul>

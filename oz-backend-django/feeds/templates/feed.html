@@ -1,0 +1,17 @@
+{% if not error %}
+<h3>{{feed.content}}</h3>
+<h3>{{feed.like}}</h3>
+<h3>{{feed.user.username}}</h3>
+<h3>{{feed.user.email}}</h3>
+
+    {% for review in feed.review_set.all %}
+        <li>
+            <span>내용: {{review.content}}</span>
+            <span>좋아요: {{review.like}}</span>
+        </li>
+    {% endfor %}
+
+
+    {% else %}
+    <div>Feed data not found</div>
+    {% endif %}
