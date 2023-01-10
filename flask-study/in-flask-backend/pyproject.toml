@@ -9,6 +9,7 @@ packages = [{include = "in_flask_backend"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 flask = "^2.2.2"
+flask-mysql = "^1.5.2"
 
 
 [build-system]
