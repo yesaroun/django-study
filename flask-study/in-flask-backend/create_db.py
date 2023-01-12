@@ -26,7 +26,7 @@ def userGenerate():
     age_list = []
     company_list = []
 
-    for i in range(10):
+    for i in range(90):
         # 비밀번호
         password = str(randrange(1000, 9999, 1))
 
@@ -58,11 +58,11 @@ def userGenerate():
     conn = mySQL.connect()
     cursor = conn.cursor()
 
-    for i in range(10):
+    for i in range(90):
         cursor.execute(
             f"""
             insert into user(password, name, gender, birthday, age, company)
-            values ('{password_list[i]}', '{name_list[i]}', '{gender_list[i]}', '{birthday_list[i]}', '{age_list[i]}', '{company_list[i]}');
+            values ('{password_list[i]}', '{name_list[i]}', '{gender_list[i]}', '{birthday_list[i]}', {age_list[i]}, '{company_list[i]}');
             """
         )
         conn.commit()
