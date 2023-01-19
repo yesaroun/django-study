@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Photo App</title>
+</head>
+<body>
+
+<h1><a href="">사진 목록 페이지</a></h1>
+<section>
+  {% for photo in photos %}
+  <div>
+    <h2>
+      <a href="">{{ photo.title }}</a>
+    </h2>
+    <img src="{{ photo.image }}" alt="{{ photo.title }}" width="300">
+    <p>{{ photo.author }}, {{ photo.price }}원</p>
+  </div>
+  {% endfor %}
+</section>
+
+</body>
+</html>
