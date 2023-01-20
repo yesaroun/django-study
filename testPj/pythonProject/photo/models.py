@@ -7,3 +7,6 @@ class Photo(models.Model):
     image = models.CharField(max_length=200)
     description = models.TextField()
     price = models.IntegerField()
+
+
+    
