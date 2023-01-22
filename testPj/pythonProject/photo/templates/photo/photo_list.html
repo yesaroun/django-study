@@ -14,7 +14,7 @@
   {% for photo in photos %}
   <div>
     <h2>
-      <a href="">{{ photo.title }}</a>
+      <a href="{% url 'photo_detail' pk=photo.pk %}">{{ photo.title }}</a>
     </h2>
     <img src="{{ photo.image }}" alt="{{ photo.title }}" width="300">
     <p>{{ photo.author }}, {{ photo.price }}원</p>
