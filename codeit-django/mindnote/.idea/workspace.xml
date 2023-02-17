@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c225b4f6-f979-4039-b96f-dcc181497de3" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/../costory/costory/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../costory/costory/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mindnote/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mindnote/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +24,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2Lr2XiJmteWpXyoJl6bvnFmBmYD" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -74,7 +78,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1676614921394</updated>
-      <workItem from="1676614922795" duration="1225000" />
+      <workItem from="1676614922795" duration="2106000" />
     </task>
     <servers />
   </component>
