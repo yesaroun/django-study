@@ -1,0 +1,19 @@
+{% extends './base.html' %}
+
+{% block post_container %}
+  <h1>글 목록 페이지에요</h1>
+  <table>
+    <tr>
+      <td>제목</td>
+      <td>작성일</td>
+      <td>수정일</td>
+    </tr>
+    {% for post in posts %}
+      <tr>
+        <td>{{ post.title }}</td>
+        <td>{{ post.dt_created }}</td>
+        <td>{{ post.dt_modified }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock post_container %}
