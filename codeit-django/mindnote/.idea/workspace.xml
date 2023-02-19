@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c225b4f6-f979-4039-b96f-dcc181497de3" name="변경" comment="" />
+    <list default="true" id="c225b4f6-f979-4039-b96f-dcc181497de3" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/diary/templates/diary/page_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diary/templates/diary/page_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/diary/templates/diary/page_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diary/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/diary/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diary/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/diary/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +21,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -78,7 +89,7 @@
       <workItem from="1676614922795" duration="2789000" />
       <workItem from="1676647783664" duration="1079000" />
       <workItem from="1676705988083" duration="4905000" />
-      <workItem from="1676805814457" duration="1184000" />
+      <workItem from="1676805814457" duration="2992000" />
     </task>
     <servers />
   </component>

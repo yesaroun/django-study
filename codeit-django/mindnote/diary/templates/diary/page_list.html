@@ -3,15 +3,17 @@
 <ul>
   {% for obj in object_list %}
     <li>
-      <div class="date">
-        <span>{{ obj.dt_created|date:"d" }}</span>
-        <p>{{ obj.dt_created|date:"M" }}</p>
-      </div>
-      <h2>{{ obj.title }}</h2>
-      <div class="score">
-        <p>감정점수</p>
-        <span>{{ obj.score }}점</span>
-      </div>
+      <a href={% url 'page-detail' obj.id %}>
+        <div class="date">
+          <span>{{ obj.dt_created|date:"d" }}</span>
+          <p>{{ obj.dt_created|date:"M" }}</p>
+        </div>
+        <h2>{{ obj.title }}</h2>
+        <div class="score">
+          <p>감정점수</p>
+          <span>{{ obj.score }}점</span>
+        </div>
+      </a>
     </li>
   {% endfor %}
 </ul>
