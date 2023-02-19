@@ -10,7 +10,7 @@
     </tr>
     {% for post in posts %}
       <tr>
-        <td>{{ post.title }}</td>
+        <td><a href={% url 'post-detail' post.id %}>{{ post.title }}</a></td>
         <td>{{ post.dt_created }}</td>
         <td>{{ post.dt_modified }}</td>
       </tr>
