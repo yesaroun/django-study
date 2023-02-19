@@ -1,12 +1,11 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from . import views
 
 urlpatterns = [
-    # path('diary/', include(views.page_list)),
-    # path('diary/info', include(views.info)),
-    # path('diary/write', include(views.page_create)),
-    # path('diary/page/<int:page_id>', include(views.page_detail)),
-    # path('diary/page/<int:page_id>/edit', include(views.page_update)),
-    # path('diary/page/<int:page_id>/delete', include(views.page_delete)),
+    path('diary/', views.page_list),
+    # path('diary/info', views.info),
+    # path('diary/write', views.page_create),
+    # path('diary/page/<int:page_id>', views.page_detail),
+    # path('diary/page/<int:page_id>/edit', views.page_update),
+    # path('diary/page/<int:page_id>/delete', views.page_delete),
 ]
