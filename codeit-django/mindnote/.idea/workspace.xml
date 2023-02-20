@@ -5,9 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c225b4f6-f979-4039-b96f-dcc181497de3" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/../costory/posts/templates/posts/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/../costory/posts/templates/posts/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../costory/posts/templates/posts/post_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/../costory/posts/templates/posts/post_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../costory/posts/templates/posts/post_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../costory/posts/templates/posts/post_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/static/diary/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/bg-pattern.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/ic-feed-black.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/ic-feed-white.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/ic-heart-black.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/ic-heart-pink.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/ic-heart.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/ic-pen-black.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/ic-pen-white.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/ic-pen.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/intro-img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/logo01.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/logo02.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/logo03.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/menu-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/note-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/note-bg.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/notespring.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/templates/diary/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/templates/diary/info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diary/templates/diary/page_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/diary/templates/diary/page_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diary/templates/diary/page_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/diary/templates/diary/page_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diary/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/diary/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diary/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/diary/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,21 +58,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/akor1/Documents/programing/code/django-study/codeit-django/mindnote&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "true",
+    "last_opened_file_path": "/Users/akor1/Documents/programing/code/django-study/codeit-django/mindnote/diary/templates/diary",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/diary/templates/diary" />
+      <recent name="$PROJECT_DIR$/diary" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="mindnote" type="Python.DjangoServer" factoryName="Django server">
       <module name="mindnote" />
@@ -88,7 +116,7 @@
       <workItem from="1676647783664" duration="1079000" />
       <workItem from="1676705988083" duration="4905000" />
       <workItem from="1676805814457" duration="3579000" />
-      <workItem from="1676867430085" duration="392000" />
+      <workItem from="1676867430085" duration="3860000" />
     </task>
     <servers />
   </component>

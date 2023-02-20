@@ -1,27 +1,29 @@
-<div class="notetext">
-  <div class="text-box">
-    <h2>{{ object.title }}</h2>
-    <div class="state">
-      <p>감정 상태</p>
-      <span>{{ object.feeling }}</span>
-      <div class="score">
-        <p>감정 점수</p>
-        <span>{{ object.score }}점</span>
-      </div>
-      <div class="date">
-        <span>{{ object.dt_created|date:"Y" }}</span>
-        <div class="month-year">
-          <p class="month">{{ object.dt_created|date:"M" }}</p>
-          <p class="year">{{ object.dt_created|date:"d" }}</p>
+{% extends './base.html' %}
+
+{% block content %}
+  <div class="wrap-notetext">
+    <div class="notetext">
+      <div class="text-box">
+        <h2>{{ object.title }}</h2>
+        <div class="state">
+          <p>감정 상태</p>
+          <span>{{ object.feeling }}</span>
         </div>
-      </div>
-      <div class="detail">{{ object.content|linebreaksbr }}</div>
-      <div class="notetext-btn">
-        <ul>
-          <li><a href="#">삭제하기</a></li>
-          <li><a href="#">수정하기</a></li>
-        </ul>
+        <div class="score">
+          <p>감정 점수</p>
+          <span>{{ object.score }}점</span>
+        </div>
+        <div class="date">
+          <span>{{ object.dt_created }}</span>
+        </div>
+        <div class="detail">{{ object.content|linebreaksbr }}</div>
+        <div class="notetext-btn">
+          <ul>
+            <li><a href="#">삭제하기</a></li>
+            <li><a href="#">수정하기</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-</div>
+{% endblock content %}

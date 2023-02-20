@@ -1,19 +1,27 @@
-<h2>일기 목록 페이지</h2>
+{% extends './base.html' %}
+{% load static %}
 
-<ul>
-  {% for obj in object_list %}
-    <li>
-      <a href={% url 'page-detail' obj.id %}>
-        <div class="date">
-          <span>{{ obj.dt_created|date:"d" }}</span>
-          <p>{{ obj.dt_created|date:"M" }}</p>
-        </div>
-        <h2>{{ obj.title }}</h2>
-        <div class="score">
-          <p>감정점수</p>
-          <span>{{ obj.score }}점</span>
-        </div>
-      </a>
-    </li>
-  {% endfor %}
-</ul>
+{% block content %}
+  <div class="wrap-note">
+    <div class="note">
+      <div class="note-list">
+        <ul>
+          {% for obj in object_list %}
+            <li>
+              <a href="{% url 'page-detail' obj.id %}">
+                <div class="date">
+                  <span>{{ obj.dt_created }}</span>
+                </div>
+                <h2>{{ obj.title }}</h2>
+                <div class="score">
+                  <p>감정점수</p>
+                  <span>{{ obj.score }}점</span>
+                </div>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
