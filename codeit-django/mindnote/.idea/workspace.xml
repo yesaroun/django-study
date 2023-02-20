@@ -4,33 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c225b4f6-f979-4039-b96f-dcc181497de3" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/diary/static/diary/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/bg-pattern.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/ic-feed-black.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/ic-feed-white.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/ic-heart-black.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/ic-heart-pink.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/ic-heart.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/ic-pen-black.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/ic-pen-white.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/ic-pen.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/intro-img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/logo01.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/logo02.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/logo03.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/menu-bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/note-bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/note-bg.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diary/static/diary/image/notespring.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diary/templates/diary/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diary/templates/diary/info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diary/templates/diary/page_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/diary/templates/diary/page_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diary/templates/diary/page_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/diary/templates/diary/page_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diary/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/diary/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diary/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/diary/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="c225b4f6-f979-4039-b96f-dcc181497de3" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -116,7 +90,7 @@
       <workItem from="1676647783664" duration="1079000" />
       <workItem from="1676705988083" duration="4905000" />
       <workItem from="1676805814457" duration="3579000" />
-      <workItem from="1676867430085" duration="3860000" />
+      <workItem from="1676867430085" duration="4561000" />
     </task>
     <servers />
   </component>
