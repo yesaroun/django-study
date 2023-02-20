@@ -14,7 +14,7 @@
         <div id="header">
             <div id="nav">
                 <div class="logo">
-                    <a href="[A]"><img src="{% static 'posts/images/logo.png' %}"></a>
+                    <a href="{% url 'post-list' %}"><img src="{% static 'posts/images/logo.png' %}"></a>
                 </div>
             </div>
             {% block post_header %}

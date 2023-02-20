@@ -1,37 +1,29 @@
+{% extends './base.html' %}
+{% load static %}
 
 <!-- post_detail css -->
-<link rel="stylesheet" href="./css/post-detail.css">
+{% block css %}
+  <link rel="stylesheet" href="{% static 'posts/css/post_detail.css' %}">
+{% endblock css %}
 
 
 <!-- post_detail header-->
-<div class="container">
-    <h1 class="title">[A] 글 제목</h1>
-    <p class="date">[B] 글 작성일</p>
-</div>
+{% block post_header %}
+  <div class="container">
+    <h1 class="title">{{ post.title }}</h1>
+    <p class="date">{{ post.dt_created }}</p>
+  </div>
+{% endblock post_header %}
 
 
 <!-- post_detail content-->
-<div class="content">
-    <p class="text">[C] 글 본문</p>
-    <p class="date_md">수정일 <span>[D] 최종 수정일</span></p>
-</div>
-    <div class="btn">
-    <div class="btn_list"><a href="./post-list.html">목록으로</a></div>
-</div>
+{% block content %}
+  <div class="content">
+    <p class="text">{{ post.content|linebreaksbr }}</p>
+    <p class="date_md">수정일 <span>{{ post.dt_modified }}</span></p>
+  </div>
+  <div class="btn">
+    <div class="btn_list"><a href="{% url 'post-list' %}">목록으로</a></div>
+  </div>
+{% endblock content %}
 
-
-<!-- 이전에 작성했던 post_detail.html
-
-{% extends './base.html' %}
-
-{% block post_container %}
-	<h2>{{post.title}}</h2>
-	<div>작성일 : {{post.dt_created}}</div>
-	<hr>
-	<div>{{post.content|linebreaksbr}}</div>
-	<hr>
-	<a href={% url 'post-list' %}>돌아가기</a>
-{% endblock post_container %}
-
-
--->
