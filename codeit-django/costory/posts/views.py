@@ -20,8 +20,8 @@ def post_create(request):
         title = request.POST['title']
         content = request.POST['content']
         new_post = Post(
-            title = title,
-            content = content
+            title=title,
+            content=content
         )
         new_post.save()
         return redirect('post-detail', post_id=new_post.id)
