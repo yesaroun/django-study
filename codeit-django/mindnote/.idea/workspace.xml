@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c225b4f6-f979-4039-b96f-dcc181497de3" name="변경" comment="" />
+    <list default="true" id="c225b4f6-f979-4039-b96f-dcc181497de3" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/diary/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../mydjango01/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../mydjango01/mysite/settings.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +47,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "settings.editor.selected.configurable": "watcher.settings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -91,6 +95,7 @@
       <workItem from="1676705988083" duration="4905000" />
       <workItem from="1676805814457" duration="3579000" />
       <workItem from="1676867430085" duration="4561000" />
+      <workItem from="1676992248683" duration="552000" />
     </task>
     <servers />
   </component>
