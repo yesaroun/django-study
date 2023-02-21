@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c225b4f6-f979-4039-b96f-dcc181497de3" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/diary/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diary/templates/diary/page_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../mydjango01/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../mydjango01/mysite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diary/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/diary/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diary/templates/diary/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/diary/templates/diary/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diary/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/diary/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diary/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/diary/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +98,7 @@
       <workItem from="1676705988083" duration="4905000" />
       <workItem from="1676805814457" duration="3579000" />
       <workItem from="1676867430085" duration="4561000" />
-      <workItem from="1676992248683" duration="552000" />
+      <workItem from="1676992248683" duration="1259000" />
     </task>
     <servers />
   </component>

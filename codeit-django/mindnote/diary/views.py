@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Page
+from .forms import PageForm
 
 
 def page_list(request):
@@ -14,3 +15,8 @@ def page_detail(request, page_id):
 
 def info(request):
     return render(request, "diary/info.html")
+
+
+def page_create(request):
+    form = PageForm()
+    return render(request, "diary/page_form.html", {"form": form})
