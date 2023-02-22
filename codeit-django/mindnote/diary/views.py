@@ -19,19 +19,8 @@ def info(request):
 
 def page_create(request):
     if request.method == "POST":
-        title = request.POST["title"]
-        content = request.POST["content"]
-        feeling = request.POST["feeling"]
-        score = request.POST["score"]
-        dt_created = request.POST["dt_created"]
-        new_post = Page(
-            title=title,
-            content=content,
-            feeling=feeling,
-            score=score,
-            dt_created=dt_created,
-        )
-        new_post.save()
+        page_form = PageForm(request.POST)  # 입력된 데이터와 폼을 합쳐서 바인딩 폼 만들기
+        new_post = page_form.save()  # 데이터 저장 및 생성된 데이터 모델 변환
         return redirect("page-detail", page_id=new_post.id)
     else:
         form = PageForm()
