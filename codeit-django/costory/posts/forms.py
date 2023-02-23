@@ -11,7 +11,7 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ["title", "content"]
-        # widgets에 직접 접근해야할때 이렇게 한
+        # widgets에 직접 접근해야할때 이렇게 한다.
         widgets = {
             "title": forms.TextInput(
                 attrs={"class": "title", "placeholder": "제목을 입력 하세요"}
