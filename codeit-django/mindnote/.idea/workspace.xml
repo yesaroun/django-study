@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c225b4f6-f979-4039-b96f-dcc181497de3" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/diary/validators.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diary/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/diary/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,14 +64,16 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="mindnote.settings" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="$USER_HOME$/.pyenv/versions/django-envs/bin/python3.7" />
+      <option name="SDK_NAME" value="Python 3.7 (django-envs) (2)" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
+      <option name="port" value="8003" />
       <option name="host" value="" />
       <option name="additionalOptions" value="" />
       <option name="browserUrl" value="" />
@@ -96,6 +100,9 @@
       <workItem from="1676992248683" duration="1401000" />
       <workItem from="1677022042991" duration="2829000" />
       <workItem from="1677033534123" duration="613000" />
+      <workItem from="1677114096967" duration="597000" />
+      <workItem from="1677116290277" duration="65000" />
+      <workItem from="1677116373060" duration="4212000" />
     </task>
     <servers />
   </component>
