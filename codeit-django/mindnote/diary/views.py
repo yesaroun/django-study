@@ -49,7 +49,7 @@ def page_update(request, page_id):
         form = PageForm(request.POST, instance=object)
         if form.is_valid():
             form.save()
-            return redirect("page-detail", page_id=page_id)
+            return redirect("page-detail", page_id=object.id)
     else:
         form = PageForm(instance=object)
     return render(request, "diary/page_form.html", {"form": form})
