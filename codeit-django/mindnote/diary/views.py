@@ -17,23 +17,27 @@ def info(request):
     return render(request, "diary/info.html")
 
 
+# def page_create(request):
+#     if request.method == "POST":
+#         form = PageForm(request.POST)  # form : 입력된 데이터가 들어있는 바인딩 폼
+#         if form.is_valid():
+#             new_page = form.save()
+#             return redirect("page-detail", page_id=new_page.id)
+#         else:  # 이 데이터가 유효하지 않은 경우
+#             return render(request, "diary/page_form.html", {"form": form})
+#     else:
+#         form = PageForm()  # form :비어 있는 폼
+#         return render(request, "diary/page_form.html", {"form": form})
+
+
 def page_create(request):
+
     if request.method == "POST":
         form = PageForm(request.POST)  # form : 입력된 데이터가 들어있는 바인딩 폼
         if form.is_valid():
             new_page = form.save()
             return redirect("page-detail", page_id=new_page.id)
-        else:  # 이 데이터가 유효하지 않은 경우
-            return render(request, "diary/page_form.html", {"form": form})
     else:
         form = PageForm()  # form :비어 있는 폼
-        return render(request, "diary/page_form.html", {"form": form})
 
-    # if request.method == "POST":
-    #     form = PageForm(request.POST)  # form : 입력된 데이터가 들어있는 바인딩 폼
-    #     if form.is_valid():
-    #         new_page = form.save()
-    #         return redirect("page-detail", page_id=new_page.id)
-    # else:
-    #     form = PageForm()  # form :비어 있는 폼
-    # return render(request, "diary/page_form.html", {"form": form})
+    return render(request, "diary/page_form.html", {"form": form})
