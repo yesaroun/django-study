@@ -18,14 +18,21 @@
   <div class="btn_post">
     <a href="{% url 'post-create' %}">글쓰기</a>
   </div>
-  <div class="post_container">
-    {% for post in posts %}
-      <div class="post"><a href="{% url 'post-detail' post.id %}">
-        <h2 class="title">{{ post.title }}</h2>
-        <p class="date">{{ post.dt_created }}</p>
-        <p class="text">{{ post.content|slice:":100" }}</p>
-      </a></div>
-    {% endfor %}
-  </div>
+  {% if posts %}
+    <div class="post_container">
+      {% for post in posts %}
+        <div class="post"><a href="{% url 'post-detail' post.id %}">
+          <h2 class="title">{{ post.title }}</h2>
+          <p class="date">{{ post.dt_created }}</p>
+          <p class="text">{{ post.content|slice:":100" }}</p>
+        </a></div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="blank">
+      <p>보여줄 글이 없어요. <br> 첫 글을 작성해부면 어떨까요?</p>
+    </div>
+  {% endif %}
+
 {% endblock content %}
 
