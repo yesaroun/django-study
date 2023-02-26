@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.core.paginator import Paginator
+from django.views import View
 from .models import Post
 from .forms import PostForm
-from django.http import Http404
-from django.core.paginator import Paginator
 
 
 def post_list(request):
@@ -22,15 +22,25 @@ def post_detail(request, post_id):
     return render(request, "posts/post_detail.html", context)
 
 
-def post_create(request):
-    if request.method == "POST":
+# def post_create(request):
+#     if request.method == "POST":
+#         post_form = PostForm(request.POST)
+#         if post_form.is_valid():
+#             new_post = post_form.save()
+#             return redirect("post-detail", post_id=new_post.id)
+#     else:
+#         post_form = PostForm()
+#     return render(request, "posts/post_form.html", {"form": post_form})
+class PostCreateView(View):
+    def get(self, request):
+        post_form = PostForm()
+        return render(request, "posts/post_form.html", {"form": post_form})
+
+    def post(self, request):
         post_form = PostForm(request.POST)
         if post_form.is_valid():
             new_post = post_form.save()
             return redirect("post-detail", post_id=new_post.id)
-    else:
-        post_form = PostForm()
-    return render(request, "posts/post_form.html", {"form": post_form})
 
 
 def post_update(request, post_id):
