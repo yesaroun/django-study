@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 
 # from django.views import View
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DetailView
 from django.urls import reverse
 from .models import Post
 from .forms import PostForm
@@ -25,11 +25,15 @@ class PostListView(ListView):
     page_kwarg = "page"
 
 
-def post_detail(request, post_id):
-    post = get_object_or_404(Post, id=post_id)
-
-    context = {"post": post}
-    return render(request, "posts/post_detail.html", context)
+# def post_detail(request, post_id):
+#     post = get_object_or_404(Post, id=post_id)
+#     context = {"post": post}
+#     return render(request, "posts/post_detail.html", context)
+class PostDetailView(DetailView):
+    model = Post
+    template_name = "posts/post_detail.html"
+    pk_url_kwarg = "post_id"
+    context_object_name = "post"
 
 
 # def post_create(request):
