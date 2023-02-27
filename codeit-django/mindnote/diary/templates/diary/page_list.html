@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block content %}
-  {% if page.object_list %}
+  {% if page_obj.object_list %}
     <div class="wrap-note">
       <div class="note">
         <div class="note-list">
           <ul>
-            {% for obj in page.object_list %}
+            {% for obj in page_obj.object_list %}
               <li>
                 <a href="{% url 'page-detail' obj.id %}">
                   <div class="date">
@@ -24,18 +24,18 @@
           </ul>
         </div>
         <div class="paging">
-          {% if page.has_previous %}
+          {% if page_object.has_previous %}
             <a href="?page=1" class="first">처음</a>
-            <a href="?page={{ page.previous_page_number }}" class="prev">이전</a>
+            <a href="?page={{ page_object.previous_page_number }}" class="prev">이전</a>
           {% endif %}
 
           <span class="page">
-            <p>{{ page.number }} of {{ page.paginator.num_pages }}</p>
+            <p>{{ page_object.number }} of {{ page_object.paginator.num_pages }}</p>
           </span>
 
-        {% if page.has_next %}
-          <a href="?page={{ page.next_page_number }}" class="next">다음</a>
-          <a href="?page={{ page.paginator.num_pages }}" class="last">마지막</a>
+        {% if page_object.has_next %}
+          <a href="?page={{ page_object.next_page_number }}" class="next">다음</a>
+          <a href="?page={{ page_object.paginator.num_pages }}" class="last">마지막</a>
         {% endif %}
         </div>
       </div>
