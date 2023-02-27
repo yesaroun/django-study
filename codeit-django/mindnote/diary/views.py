@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
-from django.views.generic import CreateView, ListView, DeleteView
+from django.views.generic import CreateView, ListView, DeleteView, UpdateView
 from django.urls import reverse
 from .models import Page
 from .forms import PageForm
@@ -69,16 +69,24 @@ class PageCreateView(CreateView):
         return reverse("page-detail", kwargs={"page_id": self.object.id})
 
 
-def page_update(request, page_id):
-    object = Page.objects.get(id=page_id)
-    if request.method == "POST":
-        form = PageForm(request.POST, instance=object)
-        if form.is_valid():
-            form.save()
-            return redirect("page-detail", page_id=object.id)
-    else:
-        form = PageForm(instance=object)
-    return render(request, "diary/page_form.html", {"form": form})
+# def page_update(request, page_id):
+#     object = Page.objects.get(id=page_id)
+#     if request.method == "POST":
+#         form = PageForm(request.POST, instance=object)
+#         if form.is_valid():
+#             form.save()
+#             return redirect("page-detail", page_id=object.id)
+#     else:
+#         form = PageForm(instance=object)
+#     return render(request, "diary/page_form.html", {"form": form})
+class PageUpdateView(UpdateView):
+    model = Page
+    form_class = PageForm
+    template_name = "diary/page_form.html"
+    pk_url_kwarg = "page_id"
+
+    def get_success_url(self):
+        return reverse("page-detail", kwargs={"page_id": self.object.id})
 
 
 def page_delete(request, page_id):
