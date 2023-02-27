@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 
 # from django.views import View
-from django.views.generic import CreateView, ListView, DetailView, UpdateView
+from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from django.urls import reverse
 from .models import Post
 from .forms import PostForm
@@ -87,15 +87,15 @@ class PostUpdateView(UpdateView):
         return reverse("post-detail", kwargs={"post_id": self.object.id})
 
 
-def post_delete(request, post_id):
-    post = get_object_or_404(Post, id=post_id)
-
-    if request.method == "POST":
-        post.delete()
-        return redirect("post-list")
-    else:
-        return render(request, "posts/post_confirm_delete.html", {"post": post})
-
+# def post_delete(request, post_id):
+#     post = get_object_or_404(Post, id=post_id)
+#
+#     if request.method == "POST":
+#         post.delete()
+#         return redirect("post-list")
+#     else:
+#         return render(request, "posts/post_confirm_delete.html", {"post": post})
+class
 
 def index(request):
     return redirect("post-list")

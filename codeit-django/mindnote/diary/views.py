@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
+from django.core.paginator import Paginator
+from django.views.generic import CreateView
+from django.urls import reverse
 from .models import Page
 from .forms import PageForm
-from django.core.paginator import Paginator
 
 
 def page_list(request):
@@ -36,17 +38,25 @@ def info(request):
 #         return render(request, "diary/page_form.html", {"form": form})
 
 
-def page_create(request):
+# def page_create(request):
+#
+#     if request.method == "POST":
+#         form = PageForm(request.POST)  # form : 입력된 데이터가 들어있는 바인딩 폼
+#         if form.is_valid():
+#             new_page = form.save()
+#             return redirect("page-detail", page_id=new_page.id)
+#     else:
+#         form = PageForm()  # form :비어 있는 폼
+#
+#     return render(request, "diary/page_form.html", {"form": form})
+class PageCreateView(CreateView):
+    model = Page
+    form_class = PageForm
+    template_name = "diary/page_form.html"
 
-    if request.method == "POST":
-        form = PageForm(request.POST)  # form : 입력된 데이터가 들어있는 바인딩 폼
-        if form.is_valid():
-            new_page = form.save()
-            return redirect("page-detail", page_id=new_page.id)
-    else:
-        form = PageForm()  # form :비어 있는 폼
-
-    return render(request, "diary/page_form.html", {"form": form})
+    def get_success_url(self):
+        # self.object는 이 CreateView에서 새로 생성한 데이터 모델
+        return reverse("page-detail", kwargs={"page_id": self.object.id})
 
 
 def page_update(request, page_id):
