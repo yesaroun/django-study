@@ -2,7 +2,13 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 
 # from django.views import View
-from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
+from django.views.generic import (
+    CreateView,
+    ListView,
+    DetailView,
+    UpdateView,
+    DeleteView,
+)
 from django.urls import reverse
 from .models import Post
 from .forms import PostForm
@@ -95,7 +101,15 @@ class PostUpdateView(UpdateView):
 #         return redirect("post-list")
 #     else:
 #         return render(request, "posts/post_confirm_delete.html", {"post": post})
-class
+class PostDeleteView(DeleteView):
+    model = Post
+    template_name = "posts/post_confirm_delete.html"
+    pk_url_kwarg = "post_id"
+    context_object_name = "post"
+
+    def get_success_url(self):
+        return reverse("post-list")
+
 
 def index(request):
     return redirect("post-list")
