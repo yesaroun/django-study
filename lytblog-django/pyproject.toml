@@ -13,6 +13,10 @@ django-taggit = "^3.1.0"
 django-taggit-templatetags2 = "^1.6.1"
 django-widget-tweaks = "^1.4.12"
 pytz = "^2022.7.1"
+pillow = "^9.4.0"
+pyopenssl = "^23.0.0"
+ndg-httpsclient = "^0.5.1"
+pyasn1 = "^0.4.8"
 
 
 [build-system]
