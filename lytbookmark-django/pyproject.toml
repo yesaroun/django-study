@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "lytbookmark-django"
+version = "0.1.0"
+description = ""
+authors = ["yesaroun <akor1@naver.com>"]
+readme = "README.md"
+packages = [{include = "lytbookmark_django"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.1.7"
+pytz = "^2022.7.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
