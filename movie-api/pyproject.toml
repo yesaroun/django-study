@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "movie-api"
+version = "0.1.0"
+description = ""
+authors = ["yesaroun <akor1@naver.com>"]
+readme = "README.md"
+packages = [{include = "movie_api"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+django = "4.0"
+djangorestframework = "3.13.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
