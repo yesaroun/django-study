@@ -1,0 +1,19 @@
+
+### 리스트
+GET http://127.0.0.1:8000/movies
+Content-Type: application/json
+
+### 영화정보 리스트
+GET http://localhost:8000/movies
+Content-Type: application/sjon
+
+### 영화 post
+POST http://127.0.0.1:8000/movies
+Content-Type: application/json
+
+{
+    "name": "반도2",
+    "opening_date": "2022-07-15",
+    "running_time": 115,
+    "overview": "전대미문의 재난 이후 4년이 흐른 대한민국은 버려진 땅이 되어버렸다. 사람들은 고립된 섬이 된 반도에 갇혔고 누구의 생사도 확인할 수 없는 상황에서 정석은 피할 수 없는 미션을 받고 한국 땅에 다시 발을 들인다. 정석은 미지의 세계인 그곳에서 예상치 못한 습격을 받고 일촉즉발의 순간 ‘반도’의 생존자들을 만나게 된다."
+}
