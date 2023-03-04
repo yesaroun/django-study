@@ -14,7 +14,10 @@ class MovieSerializer(serializers.Serializer):
 
 
 class ActorSerializer(serializers.Serializer):
-    id = serializers.IntegerField()
+    id = serializers.IntegerField(read_only=True)
     name = serializers.CharField()
     gender = serializers.CharField()
     birth_date = serializers.DateField()
+
+    def create(self, validated_data):
+        return Actor.objects.create(**validated_data)

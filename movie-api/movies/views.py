@@ -21,8 +21,16 @@ def movie_list(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(["GET"])
+@api_view(["GET", "POST"])
 def actor_list(request):
-    actors = Actor.objects.all()
-    serializer = ActorSerializer(actors, many=True)
-    return Response(serializer.data, status=200)
+    if request.method == "GET":
+        actors = Actor.objects.all()
+        serializer = ActorSerializer(actors, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    elif request.method == "POST":
+        data = request.data
+        serializer = ActorSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
