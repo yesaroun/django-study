@@ -3,7 +3,7 @@ from .models import Movie, Actor, Review
 
 
 class MovieSerializer(serializers.ModelSerializer):
-    actors = serializers.StringRelatedField(many=True, read_only=True)
+    # actors = serializers.StringRelatedField(many=True, read_only=True)
 
     class Meta:
         model = Movie
@@ -11,7 +11,6 @@ class MovieSerializer(serializers.ModelSerializer):
             "id",
             "name",
             "reviews",
-            "actors",
             "opening_date",
             "running_time",
             "overview",
