@@ -3,16 +3,14 @@ from .models import Movie, Actor, Review
 
 
 class MovieSerializer(serializers.ModelSerializer):
-    movie_reviews = serializers.PrimaryKeyRelatedField(
-        source="reviews", many=True, read_only=True
-    )
+    reviews = serializers.StringRelatedField(many=True)
 
     class Meta:
         model = Movie
         fields = [
             "id",
             "name",
-            "movie_reviews",
+            "reviews",
             "opening_date",
             "running_time",
             "overview",
@@ -26,9 +24,8 @@ class ActorSerializer(serializers.ModelSerializer):
 
 
 class ReviewSerializer(serializers.ModelSerializer):
+    movie = serializers.StringRelatedField()
+
     class Meta:
         model = Review
         fields = ["id", "movie", "username", "star", "comment", "created"]
-        extra_kwargs = {
-            "movie": {"read_only": True},
-        }
