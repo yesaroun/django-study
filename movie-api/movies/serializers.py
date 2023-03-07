@@ -3,9 +3,20 @@ from .models import Movie, Actor, Review
 
 
 class MovieSerializer(serializers.ModelSerializer):
+    movie_reviews = serializers.PrimaryKeyRelatedField(
+        source="reviews", many=True, read_only=True
+    )
+
     class Meta:
         model = Movie
-        fields = ["id", "name", "opening_date", "running_time", "overview"]
+        fields = [
+            "id",
+            "name",
+            "movie_reviews",
+            "opening_date",
+            "running_time",
+            "overview",
+        ]
 
 
 class ActorSerializer(serializers.ModelSerializer):

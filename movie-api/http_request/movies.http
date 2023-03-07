@@ -19,7 +19,7 @@ Content-Type: application/json
 }
 
 ### 특정 영화 get
-GET http://127.0.0.1:8000/movies/3
+GET http://127.0.0.1:8000/movies/5
 Content-Type: application/json
 
 ### 특정 영화 patch
