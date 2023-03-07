@@ -1,7 +1,7 @@
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework.generics import get_object_or_404
+from rest_framework.generics import get_object_or_404, ListCreateAPIView
 from rest_framework.views import APIView
 
 from .models import Movie, Actor, Review
@@ -21,18 +21,22 @@ from .serializers import MovieSerializer, ActorSerializer, ReviewSerializer
 #             serializer.save()
 #             return Response(serializer.data, status=status.HTTP_201_CREATED)
 #         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-class MovieList(APIView):
-    def get(self, request):
-        movies = Movie.objects.all()
-        serializer = MovieSerializer(movies, many=True)
-        return Response(serializer.data)
-
-    def post(self, request):
-        serializer = MovieSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#
+# class MovieList(APIView):
+#     def get(self, request):
+#         movies = Movie.objects.all()
+#         serializer = MovieSerializer(movies, many=True)
+#         return Response(serializer.data)
+#
+#     def post(self, request):
+#         serializer = MovieSerializer(data=request.data)
+#         if serializer.is_valid(raise_exception=True):
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class MovieList(ListCreateAPIView):
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
 
 
 # @api_view(["GET", "PATCH", "DELETE"])
@@ -106,16 +110,26 @@ def actor_detail(request, pk):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-@api_view(["GET", "POST"])
-def review_list(request, pk):
-    movie = get_object_or_404(Movie, pk=pk)
-    if request.method == "GET":
-        reviews = Review.objects.filter(movie=movie)
-        serializer = ReviewSerializer(reviews, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    elif request.method == "POST":
-        serializer = ReviewSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save(movie=movie)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# @api_view(["GET", "POST"])
+# def review_list(request, pk):
+#     movie = get_object_or_404(Movie, pk=pk)
+#     if request.method == "GET":
+#         reviews = Review.objects.filter(movie=movie)
+#         serializer = ReviewSerializer(reviews, many=True)
+#         return Response(serializer.data, status=status.HTTP_200_OK)
+#     elif request.method == "POST":
+#         serializer = ReviewSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save(movie=movie)
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class ReviewList(ListCreateAPIView):
+    serializer_class = ReviewSerializer
+
+    def get_queryset(self):
+        movie = get_object_or_404(Movie, pk=self.kwargs.get("pk"))
+        return Review.objects.filter(movie=movie)
+
+    def perform_create(self, serializer):
+        movie = get_object_or_404(Movie, pk=self.kwargs.get("pk"))
+        serializer.save(movie=movie)
