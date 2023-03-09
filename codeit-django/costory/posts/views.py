@@ -1,6 +1,3 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.core.paginator import Paginator
-
 # from django.views import View
 from django.views.generic import (
     CreateView,
@@ -8,10 +5,17 @@ from django.views.generic import (
     DetailView,
     UpdateView,
     DeleteView,
+    RedirectView,
 )
 from django.urls import reverse
 from .models import Post
 from .forms import PostForm
+
+
+# def index(request):
+#     return redirect("post-list")
+class IndexRedirectView(RedirectView):
+    pattern_name = "post-list"
 
 
 # def post_list(request):
@@ -22,24 +26,32 @@ from .forms import PostForm
 #         curr_page_number = 1
 #     page = paginator.page(curr_page_number)
 #     return render(request, "posts/post_list.html", {"page": page})
+#
+# class PostListView(ListView):
+#     model = Post
+#     template_name = "posts/post_list.html"
+#     context_object_name = "posts"
+#     ordering = ["-dt_created"]
+#     paginate_by = 6
+#     page_kwarg = "page"
 class PostListView(ListView):
     model = Post
-    template_name = "posts/post_list.html"
-    context_object_name = "posts"
     ordering = ["-dt_created"]
     paginate_by = 6
-    page_kwarg = "page"
 
 
 # def post_detail(request, post_id):
 #     post = get_object_or_404(Post, id=post_id)
 #     context = {"post": post}
 #     return render(request, "posts/post_detail.html", context)
+#
+# class PostDetailView(DetailView):
+#     model = Post
+#     template_name = "posts/post_detail.html"
+#     pk_url_kwarg = "post_id"
+#     context_object_name = "post"
 class PostDetailView(DetailView):
     model = Post
-    template_name = "posts/post_detail.html"
-    pk_url_kwarg = "post_id"
-    context_object_name = "post"
 
 
 # def post_create(request):
@@ -63,13 +75,19 @@ class PostDetailView(DetailView):
 #             new_post = post_form.save()
 #             return redirect("post-detail", post_id=new_post.id)
 # 클래스형 뷰, 제네릭 뷰(create)
+# class PostCreateView(CreateView):
+#     model = Post
+#     form_class = PostForm
+#     template_name = "posts/post_form.html"
+#
+#     def get_success_url(self):
+#         return reverse("post-detail", kwargs={"post_id": self.object.id})
 class PostCreateView(CreateView):
     model = Post
     form_class = PostForm
-    template_name = "posts/post_form.html"
 
     def get_success_url(self):
-        return reverse("post-detail", kwargs={"post_id": self.object.id})
+        return reverse("post-detail", kwargs={"pk": self.object.id})
 
 
 # def post_update(request, post_id):
@@ -83,14 +101,21 @@ class PostCreateView(CreateView):
 #     else:
 #         post_form = PostForm(instance=post)
 #     return render(request, "posts/post_form.html", {"form": post_form})
+#
+# class PostUpdateView(UpdateView):
+#     model = Post
+#     form_class = PostForm
+#     template_name = "posts/post_form.html"
+#     pk_url_kwarg = "post_id"
+#
+#     def get_success_url(self):
+#         return reverse("post-detail", kwargs={"post_id": self.object.id})
 class PostUpdateView(UpdateView):
     model = Post
     form_class = PostForm
-    template_name = "posts/post_form.html"
-    pk_url_kwarg = "post_id"
 
     def get_success_url(self):
-        return reverse("post-detail", kwargs={"post_id": self.object.id})
+        return reverse("post-detail", kwargs={"pk": self.object.id})
 
 
 # def post_delete(request, post_id):
@@ -101,15 +126,17 @@ class PostUpdateView(UpdateView):
 #         return redirect("post-list")
 #     else:
 #         return render(request, "posts/post_confirm_delete.html", {"post": post})
+#
+# class PostDeleteView(DeleteView):
+#     model = Post
+#     template_name = "posts/post_confirm_delete.html"
+#     pk_url_kwarg = "post_id"
+#     context_object_name = "post"
+#
+#     def get_success_url(self):
+#         return reverse("post-list")
 class PostDeleteView(DeleteView):
     model = Post
-    template_name = "posts/post_confirm_delete.html"
-    pk_url_kwarg = "post_id"
-    context_object_name = "post"
 
     def get_success_url(self):
         return reverse("post-list")
-
-
-def index(request):
-    return redirect("post-list")
