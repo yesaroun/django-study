@@ -1,7 +1,8 @@
 from django.db import models
+from common.models import CommonModel
 
 
-class Room(models.Model):
+class Room(CommonModel):
 
     """room Model Definition"""
 
@@ -39,11 +40,9 @@ class Room(models.Model):
     amenities = models.ManyToManyField(
         "rooms.Amenity",
     )
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
 
-class Amenity(models.Model):
+class Amenity(CommonModel):
 
     """Amenity Definition"""
 
