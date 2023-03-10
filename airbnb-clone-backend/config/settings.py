@@ -39,6 +39,7 @@ SYSTEM_APPS: list = [
 
 CUSTOM_APPS: list = [
     "houses.apps.HousesConfig",
+    "users.apps.UsersConfig",
 ]
 
 INSTALLED_APPS: list = SYSTEM_APPS + CUSTOM_APPS
@@ -122,3 +123,7 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# auth
+
+AUTH_USER_MODEL = "users.User"
