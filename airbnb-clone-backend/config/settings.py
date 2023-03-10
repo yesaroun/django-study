@@ -38,6 +38,7 @@ SYSTEM_APPS: list = [
 ]
 
 CUSTOM_APPS: list = [
+    "common.apps.CommonConfig",
     "users.apps.UsersConfig",
     "rooms.apps.RoomsConfig",
 ]
