@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c225b4f6-f979-4039-b96f-dcc181497de3" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/../costory/posts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../costory/posts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../costory/posts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../costory/posts/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +112,7 @@
       <workItem from="1677422419290" duration="43000" />
       <workItem from="1677462539265" duration="3169000" />
       <workItem from="1677507021410" duration="2680000" />
-      <workItem from="1678328534540" duration="1370000" />
+      <workItem from="1678328534540" duration="2028000" />
     </task>
     <servers />
   </component>
