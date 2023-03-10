@@ -38,7 +38,6 @@ SYSTEM_APPS: list = [
 ]
 
 CUSTOM_APPS: list = [
-    "houses.apps.HousesConfig",
     "users.apps.UsersConfig",
 ]
 
