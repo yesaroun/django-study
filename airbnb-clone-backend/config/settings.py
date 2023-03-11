@@ -45,6 +45,7 @@ CUSTOM_APPS: list = [
     "categories.apps.CategoriesConfig",
     "reviews.apps.ReviewsConfig",
     "wishlists.apps.WishlistsConfig",
+    "bookings.apps.BookingsConfig",
 ]
 
 INSTALLED_APPS: list = SYSTEM_APPS + CUSTOM_APPS
