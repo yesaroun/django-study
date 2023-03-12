@@ -27,6 +27,12 @@ class RoomAdmin(admin.ModelAdmin):
     # def total_amenities(self, room):
     #     return room.amenities.count()
 
+    search_fields = (
+        "owner__username",
+        "name",
+        "price",
+    )
+
 
 @admin.register(Amenity)
 class AmenityAdmin(admin.ModelAdmin):
