@@ -46,7 +46,7 @@ class Room(CommonModel):
         "rooms.Amenity",
         related_name="rooms",
     )
-    categories = models.ForeignKey(
+    category = models.ForeignKey(
         "categories.Category",
         null=True,
         blank=True,
