@@ -11,13 +11,13 @@ class WordFilter(admin.SimpleListFilter):
 
     def lookups(self, request, model_admin):
         return [
-            ("good", "Good"),
+            ("good", "Good"),  # (url,admin패널)
             ("great", "Great"),
             ("awesome", "Awesome"),
         ]
 
     def queryset(self, request, reviews: QuerySet):
-        word = self.value()
+        word = self.value()  # url값 받아옴
         if word:
             return reviews.filter(payload__contains=word)
         else:

@@ -37,9 +37,9 @@ class RoomAdmin(admin.ModelAdmin):
     #     return room.amenities.count()
 
     search_fields = (
-        "owner__username",
         "name",
-        "price",
+        "=owner__username",  # 동일
+        "^price",  # startswith
     )
 
 

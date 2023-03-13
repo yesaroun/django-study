@@ -37,6 +37,10 @@ SYSTEM_APPS: list = [
     "django.contrib.staticfiles",
 ]
 
+THIRD_PARTY_APPS: list = [
+    "rest_framework",
+]
+
 CUSTOM_APPS: list = [
     "common.apps.CommonConfig",
     "users.apps.UsersConfig",
@@ -50,7 +54,7 @@ CUSTOM_APPS: list = [
     "direct_messages.apps.DirectMessagesConfig",
 ]
 
-INSTALLED_APPS: list = SYSTEM_APPS + CUSTOM_APPS
+INSTALLED_APPS: list = SYSTEM_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
 
 
 MIDDLEWARE = [
