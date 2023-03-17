@@ -1,0 +1,12 @@
+{
+    "name": "Beautiful House DRF hi",
+    "country": "한국",
+    "city": "서울",
+    "price": 100,
+    "rooms": 2,
+    "toilets": 2,
+    "description": "assssas",
+    "address": "seoul 123",
+    "pet_friendly": true,
+    "kind": "private_room"
+}
