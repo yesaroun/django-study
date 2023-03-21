@@ -1,4 +1,5 @@
 from django.db.models import QuerySet
+from django.db import transaction
 from rest_framework.serializers import ListSerializer
 from rest_framework.views import APIView
 from rest_framework.status import HTTP_204_NO_CONTENT
@@ -80,21 +81,22 @@ class Rooms(APIView):
                         raise ParseError("The category kind should be rooms")
                 except Category.DoesNotExist:
                     raise ParseError("Category not found")
-                print(request.data.get("amenities"))
-                room = serializer.save(
-                    owner=request.user,
-                    category=category,
-                )
-                amenities = request.data.get("amenities")
-                # amenities는 manytomany fields 여서 이렇게 하나씩 add 해준다
-                for amenity_pk in amenities:
-                    try:
-                        amenity = Amenity.objects.get(pk=amenity_pk)
-                    except Amenity.DoesNotExist:
-                        raise ParseError(f"Amenity with id {amenity_pk} not found")
-                    room.amenities.add(amenity)
-                serializer = RoomDetailSerializer(room)
-                return Response(serializer.data)
+                try:
+                    # transaction을 사용해서 아래 코드 중에 에러 있으면 sql 적용안하고, 에러 없으면 적용!
+                    with transaction.atomic():
+                        room = serializer.save(
+                            owner=request.user,
+                            category=category,
+                        )
+                        amenities = request.data.get("amenities")
+                        # amenities는 manytomany fields 여서 이렇게 하나씩 add
+                        for amenity_pk in amenities:
+                            amenity = Amenity.objects.get(pk=amenity_pk)
+                            room.amenities.add(amenity)
+                        serializer = RoomDetailSerializer(room)
+                        return Response(serializer.data)
+                except Exception:
+                    raise ParseError("Amenity not found")
             else:
                 return Response(serializer.errors)
         else:
