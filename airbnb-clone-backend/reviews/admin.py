@@ -1,4 +1,4 @@
-from .models import Reveiw
+from .models import Review
 from django.contrib import admin
 from django.db.models import QuerySet
 
@@ -24,7 +24,7 @@ class WordFilter(admin.SimpleListFilter):
             return reviews
 
 
-@admin.register(Reveiw)
+@admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
 
     list_display = (
