@@ -1,13 +1,14 @@
 {
-    "name": "Beautiful House DRF hi",
+    "name": "We are done",
     "country": "한국",
     "city": "서울",
     "price": 100,
     "rooms": 2,
     "toilets": 2,
-    "description": "assssas",
+    "description": "Room with owner and amenities and categories!",
     "address": "seoul 123",
     "pet_friendly": true,
-    "category":2,
+    "category":5,
+    "amenities": [2, 3, 4],
     "kind": "private_room"
 }
