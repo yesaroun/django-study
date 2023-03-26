@@ -16,11 +16,11 @@ class PhotoDetail(APIView):
         except Photo.DoesNotExist:
             raise NotFound
 
-    def delete(self, request, pk):
+    def delete(self, request, pk):  # pk : 지우고 싶은 요소
         photo = self.get_object(pk)
         if (photo.room and photo.room.owner != request.user) or (
             photo.experience and photo.experience.host != request.user
-        ):
+        ):  # photo가 room을 갖고 있는지 확인, photo.room.owner : 방의 주인인지 확인, experience도 동일
             raise PermissionDenied
         photo.delete()
         return Response(status=status.HTTP_200_OK)

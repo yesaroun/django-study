@@ -6,7 +6,6 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.exceptions import (
     NotFound,
-    NotAuthenticated,
     ParseError,
     PermissionDenied,
 )
@@ -72,7 +71,9 @@ class AmenityDetail(APIView):
 
 class Rooms(APIView):
 
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [
+        IsAuthenticatedOrReadOnly
+    ]  # APIView의 프로퍼티로 get api를 제외하고 권한이 필요, get api는 권한 없어도 read만 가능(get, head, option api 가 read 가능)
 
     def get(self, request):
         all_rooms = Room.objects.all()
