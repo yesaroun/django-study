@@ -18,7 +18,7 @@ class Review(CommonModel):
         on_delete=models.SET_NULL,
         related_name="reviews",
     )
-    experiences = models.ForeignKey(
+    experience = models.ForeignKey(
         "experiences.Experience",
         null=True,
         blank=True,
