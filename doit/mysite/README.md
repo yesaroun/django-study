@@ -13,6 +13,7 @@
 - [스타일 시트 적용](https://github.com/yesaroun/django-study/tree/main/doit/mysite#웹-페이지에-스타일-시트-적용하)
 - [get_object_or_404](https://github.com/yesaroun/django-study/tree/main/doit/mysite#get_object_or_404)
 - [view 파일 분리](https://github.com/yesaroun/django-study/tree/main/doit/mysite#1-viewspy-파일-분리하기)
+- [페이징](https://github.com/yesaroun/django-study/tree/main/doit/mysite#페이징)
 
 # Python Board 요약
 
