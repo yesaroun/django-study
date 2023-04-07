@@ -1,4 +1,19 @@
 
+## 목차
+
+- [Python Board 요약](https://github.com/yesaroun/django-study/tree/main/doit/mysite#python-board-요약)
+- [기능 정리](https://github.com/yesaroun/django-study/tree/main/doit/mysite#기능-정리)
+- [모델](https://github.com/yesaroun/django-study/tree/main/doit/mysite#모델)
+- [장고 Admin](https://github.com/yesaroun/django-study/tree/main/doit/mysite#장고-admin-사용하기)
+- [질문 목록 조회(https://github.com/yesaroun/django-study/tree/main/doit/mysite#질문-목록-조회-구현하기)
+- [질문 상세 기능](https://github.com/yesaroun/django-study/tree/main/doit/mysite#질문-상세-기능-구현하기)
+- [오류 화면](https://github.com/yesaroun/django-study/tree/main/doit/mysite#오류-화면-구현하기)
+- [URL 별칭](https://github.com/yesaroun/django-study/tree/main/doit/mysite#url-별칭으로-url-하드-코딩-문제-해결하기)
+- [URL namespace](https://github.com/yesaroun/django-study/tree/main/doit/mysite#url-네임스페이스-알아보기)
+- [스타일 시트 적용](https://github.com/yesaroun/django-study/tree/main/doit/mysite#웹-페이지에-스타일-시트-적용하)
+- [get_object_or_404](https://github.com/yesaroun/django-study/tree/main/doit/mysite#get_object_or_404)
+- [view 파일 분리](https://github.com/yesaroun/django-study/tree/main/doit/mysite#1-viewspy-파일-분리하기)
+
 # Python Board 요약
 
 > 함수형 View 를 사용해 만든 django 게시판
@@ -1214,7 +1229,7 @@ urlpatterns = [
 ]
 ```
 
-
+# 페이징
 
 pybo/view.py
 ```python
@@ -1242,8 +1257,4 @@ page = request.GET.get('page', '1')은 GET 방식 요청 URL에서 page값을 �
 
 GET 방식 요청 URL 예
 > localhost:8000/pybo/?page=1
-
-
-
-
 
