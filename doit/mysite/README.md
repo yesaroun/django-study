@@ -5,7 +5,7 @@
 - [기능 정리](https://github.com/yesaroun/django-study/tree/main/doit/mysite#기능-정리)
 - [모델](https://github.com/yesaroun/django-study/tree/main/doit/mysite#모델)
 - [장고 Admin](https://github.com/yesaroun/django-study/tree/main/doit/mysite#장고-admin-사용하기)
-- [질문 목록 조회(https://github.com/yesaroun/django-study/tree/main/doit/mysite#질문-목록-조회-구현하기)
+- [질문 목록 조회](https://github.com/yesaroun/django-study/tree/main/doit/mysite#질문-목록-조회-구현하기)
 - [질문 상세 기능](https://github.com/yesaroun/django-study/tree/main/doit/mysite#질문-상세-기능-구현하기)
 - [오류 화면](https://github.com/yesaroun/django-study/tree/main/doit/mysite#오류-화면-구현하기)
 - [URL 별칭](https://github.com/yesaroun/django-study/tree/main/doit/mysite#url-별칭으로-url-하드-코딩-문제-해결하기)
