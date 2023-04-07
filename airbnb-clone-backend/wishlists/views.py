@@ -28,3 +28,14 @@ class WishLists(APIView):
             return Response(serializer.data)
         else:
             return Response(serializer.errors)
+
+
+class WishlistsDetail(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def get_object(self, pk, user):
+        pass
+
+    def get(self, request, pk):
+        wishlist = self.get_object(pk=pk, user=request.user)
