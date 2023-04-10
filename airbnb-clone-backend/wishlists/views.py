@@ -95,7 +95,7 @@ class WishlistsDetail(APIView):
         serializer = WishlistSerializer(
             wishlist,
             data=request.data,
-            partial=True,
+            partial=True,  # 부분적 update True
         )
         if serializer.is_valid():
             wishlist = serializer.save()
