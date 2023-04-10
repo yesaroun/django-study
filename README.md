@@ -17,6 +17,17 @@
 ## Mindnote(감정 일기)
 > 
 
+![img_1.png](img_1.png)
+
+![img_2.png](img_2.png)
+
+![img_3.png](img_3.png)
+
+![img_5.png](img_5.png)
+
+![img_4.png](img_4.png)
+
+
 ### 개발환경
 
 ### [기능 정리 링크](codeit-django/mindnote/README.md)
