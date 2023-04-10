@@ -9,12 +9,19 @@ from wishlists.models import WishList
 
 
 class AmenitySerializer(ModelSerializer):
+    """
+    Amenity를 위한 Serializer
+    """
+
     class Meta:
         model = Amenity
         fields = "name", "description"
 
 
 class RoomDetailSerializer(ModelSerializer):
+    """
+    Room detail을 위한 Serailizer
+    """
 
     owner = TinyUserSerializer(
         read_only=True,
@@ -35,17 +42,26 @@ class RoomDetailSerializer(ModelSerializer):
         model = Room
         fields = "__all__"
 
-    def get_rating(self, room):
+    def get_rating(self, room) -> float:
+        """
+        Room 인스턴스의 평가 평균 계산
+        """
         return room.rating()
 
-    def get_is_owner(self, room):
+    def get_is_owner(self, room) -> bool:
+        """
+        Room 인스턴스의 주인인지 확인
+        """
         request = self.context["request"]
         return room.owner == request.user
 
     # def create(self, validated_data):
     #     return Room.objects.create(**validated_data)
 
-    def get_is_liked(self, room):
+    def get_is_liked(self, room) -> bool:
+        """
+        유저가 Room 인스턴스에 좋아요를 눌렀는지 확인
+        """
         request = self.context["request"]
         return WishList.objects.filter(
             user=request.user,
@@ -54,6 +70,9 @@ class RoomDetailSerializer(ModelSerializer):
 
 
 class RoomListSerializer(ModelSerializer):
+    """
+    Room List를 위한 Serialzier
+    """
 
     rating = serializers.SerializerMethodField
     is_owner = serializers.SerializerMethodField()
@@ -72,9 +91,15 @@ class RoomListSerializer(ModelSerializer):
             "photos",
         )
 
-    def get_rating(self, room):
+    def get_rating(self, room) -> float:
+        """
+        Room 인스턴스의 평점 평균
+        """
         return room.rating()
 
-    def get_is_owner(self, room):
+    def get_is_owner(self, room) -> bool:
+        """
+        유저가 Room 인스턴스의 주인인지 확인
+        """
         request = self.context["request"]
         return room.owner == request.user
