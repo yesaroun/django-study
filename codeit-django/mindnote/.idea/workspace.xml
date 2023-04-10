@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c225b4f6-f979-4039-b96f-dcc181497de3" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/../../img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../img_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../img_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../img_4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fd4c19e7-f33d-4e62-a54c-d40d694f1c3a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/fd4c19e7-f33d-4e62-a54c-d40d694f1c3a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-    </list>
+    <list default="true" id="c225b4f6-f979-4039-b96f-dcc181497de3" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,7 +115,7 @@
       <workItem from="1678631516329" duration="698000" />
       <workItem from="1678696701626" duration="608000" />
       <workItem from="1680853065615" duration="2653000" />
-      <workItem from="1681114476213" duration="784000" />
+      <workItem from="1681114476213" duration="788000" />
     </task>
     <servers />
   </component>

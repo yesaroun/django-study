@@ -5,6 +5,7 @@ from users.serializers import TinyUserSerializer
 from medias.serializers import PhotoSerializer
 from categories.serializers import CategorySerializer
 from reviews.serializers import ReviewSerializer
+from wishlists.models import WishList
 
 
 class AmenitySerializer(ModelSerializer):
@@ -27,6 +28,7 @@ class RoomDetailSerializer(ModelSerializer):
     )
     rating = serializers.SerializerMethodField()
     is_owner = serializers.SerializerMethodField()
+    is_liked = serializers.SerializerMethodField()
     photos = PhotoSerializer(many=True, read_only=True)
 
     class Meta:
@@ -42,6 +44,13 @@ class RoomDetailSerializer(ModelSerializer):
 
     # def create(self, validated_data):
     #     return Room.objects.create(**validated_data)
+
+    def get_is_liked(self, room):
+        request = self.context["request"]
+        return WishList.objects.filter(
+            user=request.user,
+            rooms__pk=room.pk,
+        ).exists()
 
 
 class RoomListSerializer(ModelSerializer):
