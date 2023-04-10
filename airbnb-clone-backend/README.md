@@ -1,3 +1,8 @@
+## 목차
+- [REST API](#rest-api)
+  - [Wishlist API](#wishlist-api)
+    - [WishlistDetail](#class-wishlistdetail)
+    - [WishlistToggle](#class-wishlisttoggle)
 
 ## REST API
 ### Wishlist API
