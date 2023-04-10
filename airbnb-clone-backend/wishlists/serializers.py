@@ -4,6 +4,9 @@ from .models import WishList
 
 
 class WishlistSerializer(ModelSerializer):
+    """
+    Wishlist 시리얼라이저
+    """
 
     rooms = RoomListSerializer(
         many=True,
@@ -13,6 +16,7 @@ class WishlistSerializer(ModelSerializer):
     class Meta:
         model = WishList
         fields = (
+            "pk",
             "name",
             "rooms",
         )

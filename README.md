@@ -3,6 +3,8 @@
 ## Python Board 구현
 > 함수형 View 를 사용해 만든 django 게시판
 
+![img.png](docs/img.png)
+
 ### 개발환경
 - Python3.9
 - Django4.1
@@ -12,3 +14,4 @@
 
 ## [기능 정리 링크](doit/mysite/README.md)
 
+## 
