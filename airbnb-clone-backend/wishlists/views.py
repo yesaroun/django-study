@@ -37,7 +37,7 @@ class WishLists(APIView):
 
 class WishlistsDetail(APIView):
     """
-    단일 wishlist 객체 View
+    단일 wishlist 객체 APIView
     """
 
     permission_classes = [IsAuthenticated]

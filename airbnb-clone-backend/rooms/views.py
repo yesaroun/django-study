@@ -1,20 +1,23 @@
 from django.db.models import QuerySet
 from django.db import transaction
 from django.conf import settings
+from django.utils import timezone
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.exceptions import (
     NotFound,
     ParseError,
     PermissionDenied,
 )
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .models import Amenity, Room
 from categories.models import Category
 from .serializers import AmenitySerializer, RoomListSerializer, RoomDetailSerializer
 from reviews.serializers import ReviewSerializer
 from medias.serializers import PhotoSerializer
+from bookings.models import Booking
+from bookings.serializers import PublicBookingSerializer
 from typing import List
 
 
@@ -205,3 +208,44 @@ class RoomPhotos(APIView):
             return Response(serializer.data)
         else:
             return Response(serializer.errors)
+
+
+class RoomBookings(APIView):
+    """
+    방 예약을 위한 APIView
+    """
+
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+    def get_object(self, pk) -> Room:
+        """
+        pk에 맞는 Room 객체 반환
+
+        :param pk: 검색할 Room 객체의 pk
+        :return: Room 객체
+        :raise: 객체가 존재하지 않으면 NotFound
+        """
+
+        try:
+            return Room.objects.get(pk=pk)
+        except:
+            raise NotFound
+
+    def get(self, request, pk) -> Response:
+        """
+        pk에 해당하는 Room 객체 get
+
+        :param request: HTTP request object
+        :param pk: 검색할 Room 객체의 pk
+        :return: serialized Room object data
+        """
+
+        room: Room = self.get_object(pk)
+        now = timezone.localtime(timezone.now()).date()
+        bookings = Booking.objects.filter(
+            room=room,
+            kind=Booking.BookingKindChoices.ROOM,
+            check_in__gt=now,
+        )
+        serializer = PublicBookingSerializer(bookings, many=True)
+        return Response(serializer.data)

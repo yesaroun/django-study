@@ -4,6 +4,9 @@
     - [WishlistDetail](#class-wishlistdetail)
     - [WishlistToggle](#class-wishlisttoggle)
     - [좋아요 기능(RoomDetailSerializer.get_is_liked)](#좋아요-기능)
+  - [Booking](#booking-api)
+    - [RoomBookings](#class-roombookings)
+  
 
 ## REST API
 ### Wishlist API
@@ -112,5 +115,95 @@ class RoomDetailSerializer(ModelSerializer):
             rooms__name="apt. seoul",
         ).exists()
 ```
+
+### Booking API
+
+#### class RoomBookings
+url : /rooms/<int:pk>/bookings
+
+[rooms.views.py RoomBookings](./rooms/views.py)
+
+```python
+    permission_classes = [IsAuthenticatedOrReadOnly]
+```
+로그인 한 유저만 room 예약하도록 처리  
+그래서, get은 허용하지만 그 외는 허용하지 못하도록 처리
+
+```python 
+    def get_object(self, pk) -> Room:
+        """
+        pk에 맞는 Room 객체 반환
+        """
+        
+        try:
+            return Room.objects.get(pk=pk)
+        except:
+            raise NotFoud
+
+    def get(self, request, pk) -> Response:
+        """
+        pk에 해당하는 Room 객체 get
+        """
+        
+        room: Room = self.get_object(pk)
+        now = timezone.localtime(timezone.now()).date()     # 2)
+        bookings = Booking.objects.filter(                  # 1)
+            room=room,
+            kind=Booking.BookingKindChoices.ROOM,
+            check_in__gt=now,                               # 3)
+        )
+        serializer = PublicBookingSerializer(bookings, many=True)
+        return Response(serializer.data)
+```
+##### 1)
+```python
+bookings = Booking.objects.filter(room__pk=pk)
+```
+이렇게 get_object method를 사용하지 않고도 가능하다.  
+이러면, DB를 두 번 조회하지 않는다.
+
+다만, 이 경우 booking이 없을 경우와 room이 존재하지 않을 경우 모두 빈 리스트를 출력한다.  
+그래서 user가 방 자체가 없는 상황에도 예약이 되지 않았다고 생각할 것이다.  
+
+##### timezone 관련)  
+booking 했을 때 check_out 날짜가 check_in 날짜보다 더 미래여야 한다.  
+그래서
+```python
+from django.utils import timezone
+```
+이렇게 import 한다. django에서 시간을 알아내고 싶거나, timezone 관련 작업을 하면 파이썬 내장 datetime 모듈보다는 django의 timezone을 사용하는게 좋다.  
+왜냐하면 django timezone 관련 작업할 때 유용한 것들 제공할 것임(서버의 로컬 타임 등등)
+
+django timezone을 사용하려면 config/settings.py에서 
+```python
+USE_TZ = True
+```
+이렇게 timezone을 작업한다고 한다.(기본으로 세팅 되어 있음)  
+또한, 
+```python
+TIME_ZONE = "Asia/Seoul"
+```
+이렇게 서버의 로컬 타임도 지정할 수 있다.
+
+##### 2)
+```python
+now = timezone.now()
+print(now)                          # 2023-04-12 04:02:39.303022+00:00
+print(timezone.localtime(now))      # 2023-04-12 13:03:58.798155+09:00
+```
+이렇게 로컬 타임으로 출력 가능
+```python
+now = timezone.localtime(timezone.now()).date()
+```
+.date() 메소드를 이용해서 date(날짜)만 사용
+
+##### 3)
+```python
+check_in__gt=now,
+```
+check_in이 greater than now 해야 한다.  
+
+정리하면 우리 서버가 있는 위치의 현지 시각을 localtime을 이용해 구하고 check_in 날짜가 현재 날짜보다 큰 booking을 찾고 있다.
+
 
 
