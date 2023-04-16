@@ -5,7 +5,8 @@
     - [WishlistToggle](#class-wishlisttoggle)
     - [좋아요 기능(RoomDetailSerializer.get_is_liked)](#좋아요-기능)
   - [Booking](#booking-api)
-    - [RoomBookings](#class-roombookings)
+    - [RoomBookings-GET](#class-roombookings-get)
+    - [RoomBooking-POST](#class-roombookings-post)
   
 
 ## REST API
@@ -118,7 +119,7 @@ class RoomDetailSerializer(ModelSerializer):
 
 ### Booking API
 
-#### class RoomBookings
+#### class RoomBookings (get)
 url : /rooms/<int:pk>/bookings
 
 [rooms.views.py RoomBookings](./rooms/views.py)
@@ -206,4 +207,52 @@ check_in이 greater than now 해야 한다.
 정리하면 우리 서버가 있는 위치의 현지 시각을 localtime을 이용해 구하고 check_in 날짜가 현재 날짜보다 큰 booking을 찾고 있다.
 
 
+#### class RoomBookings (post)
+
+[rooms.views.py RoomBookings](./rooms/views.py)
+
+```python
+    def post(self, request, pk):
+        room = self.get_object(pk)
+        serializer = CreateRoomBookingSerializer(data=request.data)     # 1)
+        if serializer.is_valid():                                       # 2)
+
+            return Response({"ok": True})
+        else:
+            return Response(serializer.errors)
+```
+
+##### 1)
+User가 데이터를 보내면 Serializer가 model의 요구조건에 맞춰서 data를 검증
+
+##### 2)
+user가 check_in, out에 보내는 date 값이 미래의 날짜어야 한다. 그래서 serizlizer.is_valid()만으로는 부족하다. 다른 validation을 만들어야 한다.  
+그 validation은 serializer에서 작성
+
+
+```python
+class CreateRoomBookingSerializer(serializers.ModelSerializer):
+
+    check_in = serializers.DateField()
+    check_out = serializers.DateField()         # 3)
+
+    class Meta:
+      # 중략
+
+    # 4) 
+    def validate_check_in(self, value):
+        now = timezone.localtime(timezone.now()).date()     # 5)
+        if now > value:
+            raise serializers.ValidationError("Can't book in the past!")
+        return value
+```
+
+##### 3)
+여기서는 날짜 필드가 맞는지 체크한다. 여기에서 검증하는 결과에 따라 view의 valid가 동작하는 것이다. 추가적인 검증이 필요하다면 아래에서 반영할 수 있다.
+
+##### 4)
+validate 뒤에 _ 를 입력하고 validate 하고 싶은 field의 이름을 입력한다. 예: check_in
+
+##### 5)
+오늘 date만 받아옴
 
