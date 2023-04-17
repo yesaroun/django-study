@@ -56,7 +56,7 @@ class AmenityDetail(APIView):
         serializer = AmenitySerializer(
             amenity,
             data=request.data,
-            partial=True,  # 수정할 수 있다고 안내
+            partial=True,
         )
         if serializer.is_valid():
             updated_amenity = serializer.save()
@@ -259,14 +259,9 @@ class RoomBookings(APIView):
         :return: serialized Room object data
         """
         room = self.get_object(pk)
-        serializer = CreateRoomBookingSerializer(data=request.data)  # 1)
-        # User가 1)에 데이터를 보내면 Serializer가 model의 요구조건에 맞춰서 data를 검증
+        serializer = CreateRoomBookingSerializer(data=request.data)
         if serializer.is_valid():
-            # user가 check_in, out에 보내는 date 값이 미래의 날짜여야 한다.
-            # 그래서 serializer.is_valid()만으로는 부족하다
-            # 다른 validation을 만들어야 한다 (serializers.py 2)로 이동)
 
             return Response({"ok": True})
-            # 4) 미래 날짜 일경우 True     serializer 5)로 이
         else:
             return Response(serializer.errors)
