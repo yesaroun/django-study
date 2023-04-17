@@ -28,6 +28,22 @@ class CreateRoomBookingSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Can't book in the past!")
         return value
 
+    def validate(self, data):
+        # validation 1 : check_in 날짜가 check_out보다 클 경우
+        if data["check_out"] <= data["check_in"]:
+            raise serializers.ValidationError(
+                "Check in should be smaller than check out."
+            )
+        # validation2 : booking을 저장하기 전에 이 날짜 사이에 다른 booking이 있는지 확인
+        if Booking.objects.filter(
+            check_in__lte=data["check_out"],
+            check_out__gte=data["check_in"],
+        ).exists():
+            raise serializers.ValidationError(
+                "Those (or some) of those dates are already taken."
+            )
+        return data
+
 
 class PublicBookingSerializer(serializers.ModelSerializer):
     """
