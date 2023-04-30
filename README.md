@@ -12,6 +12,18 @@
 
 ### [기능 정리 링크](airbnb-clone-backend/README.md)
 
+## Movie API
+> REST API를 활용해서 만든 영화 서비스 관련 API
+
+![img.png](docs/imgs/movieapi.png)
+
+### 개발환경
+- Python3.9
+- Django4.0
+- sqlite3
+- Poetry
+- Python Black
+
 ## Mindnote(감정 일기)
 > 함수형, 클래스형, 제네릭형 View를 모두 경험해볼 수 있었던 감정 일기 프로젝트
 

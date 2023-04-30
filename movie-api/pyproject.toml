@@ -10,6 +10,7 @@ packages = [{include = "movie_api"}]
 python = "^3.9"
 django = "4.0"
 djangorestframework = "3.13.1"
+drf-yasg = "^1.21.5"
 
 
 [build-system]
