@@ -57,3 +57,18 @@
 - Poetry
 
 ### [기능 정리 링크](airbnb-clone-backend/README.md)
+
+
+## Todo 앱
+> 함수형 View를 활용해서 만든 Todo 웹 서비스
+
+![img.png](docs/imgs/todo1.png)
+
+![img_1.png](docs/imgs/todo2.png)
+
+### 개발환경
+- Python3.10
+- Django3.2
+- sqlite3
+- virtualenv
+- HTML, CSS, Bootstrap 
