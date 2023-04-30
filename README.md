@@ -17,15 +17,15 @@
 ## Mindnote(감정 일기)
 > 
 
-![img_1.png](img_1.png)
+![img_1.png](docs/imgs/img_1.png)
 
-![img_2.png](img_2.png)
+![img_2.png](docs/imgs/img_2.png)
 
-![img_3.png](img_3.png)
+![img_3.png](docs/imgs/img_3.png)
 
-![img_5.png](img_5.png)
+![img_5.png](docs/imgs/img_5.png)
 
-![img_4.png](img_4.png)
+![img_4.png](docs/imgs/img_4.png)
 
 
 ### 개발환경
@@ -35,7 +35,7 @@
 ## Costory(블로그)
 > 함수형, 클래스형, 제네릭형 View를 모두 경험해볼 수 있었던 블로그 프로젝트
 
-![img.png](img.png)
+![img.png](docs/imgs/img.png)
 
 ### 개발환경
 - Python3.8

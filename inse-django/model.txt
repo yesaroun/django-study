@@ -15,7 +15,7 @@
 
 ## Feed
 ## - User
-## - img
+## - imgs
 ## - created_at
 ## - updated_at
 ## - like
@@ -35,7 +35,7 @@
 
 ## Story (스토리)
 ## - User
-## - img
+## - imgs
 ## - textMsg
 ## - created_at
 ## - updated_at

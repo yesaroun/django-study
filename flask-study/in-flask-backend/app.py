@@ -45,7 +45,7 @@ def show_all_feeds():
     data = {
         "id": 1,
         "title": "제목",
-        "img": "www.image.com/1",
+        "imgs": "www.image.com/1",
         "like": "100",
         "reviews": [
             {"id": 1, "nickname": "leo", "content": "댓글1"},

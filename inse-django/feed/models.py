@@ -18,7 +18,7 @@ class Feed(CommonModel):
 
 ## Feed
 ## - User
-## - img
+## - imgs
 ## - created_at
 ## - updated_at
 ## - like

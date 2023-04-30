@@ -33,7 +33,7 @@ def testGenerate():
         content_list.append(choice(content_str))
 
         like_list.append(randint(0, 30))
-        img_list.append("wwww.img.com/" + str(randint(10, 99)))
+        img_list.append("wwww.imgs.com/" + str(randint(10, 99)))
 
         # 생성 날짜
         year_date_str = str(randint(2010, 2023))
@@ -89,7 +89,7 @@ def testGenerate():
     for i in range(20):
         cursor.execute(
             f"""
-                insert into board(title, content, likes, img, created, user_id)
+                insert into board(title, content, likes, imgs, created, user_id)
                 values ("{title_list[i]}", "{content_list[i]}", {like_list[i]}, "{img_list[i]}", "{created_list[i]}", {user_id_list[i]});
             """
         )

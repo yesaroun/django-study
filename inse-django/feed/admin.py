@@ -3,6 +3,6 @@ from .models import Feed
 
 @admin.register(Feed)
 class FeedAdmin(admin.ModelAdmin):
-    list_display = ("img", "like", "content", "created", "updated")
+    list_display = ("imgs", "like", "content", "created", "updated")
     # search_fields = ("content", )
 
