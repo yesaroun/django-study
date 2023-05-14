@@ -1,0 +1,4 @@
+{
+  "python.pythonPath": "..\\coplate-venv\\bin\\python.exe",
+  // "python.pythonPath": "venv\\Scripts\\python.exe",
+}
