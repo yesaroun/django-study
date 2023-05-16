@@ -17,6 +17,7 @@
   <li>카카오 ID - {{ user.kakao_id }}</li>
   <li>주소 - {{ user.address }}</li>
 </ul>
+<a href="{% url 'account_change_password' %}">비밀번호 변경</a>
 {% else %}
 <p>로그아웃된 상태입니다.</p>
 {% endif %}
