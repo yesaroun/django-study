@@ -18,7 +18,7 @@ def contains_uppercase_letter(value):
 
 def contains_lowercase_letter(value):
     for char in value:
-        if char.isloower():
+        if char.islower():
             return True
     return False
 
