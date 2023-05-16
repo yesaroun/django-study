@@ -11,6 +11,12 @@
 
 {% if user.is_authenticated %}
 <p>안녕하세요 {{ user }}님</p>
+<p>정보:</p>
+<ul>
+  <li>닉네임 - {{ user.nickname }}</li>
+  <li>카카오 ID - {{ user.kakao_id }}</li>
+  <li>주소 - {{ user.address }}</li>
+</ul>
 {% else %}
 <p>로그아웃된 상태입니다.</p>
 {% endif %}
