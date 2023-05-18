@@ -8,7 +8,7 @@
 <div class="account-background">
   <main class="account">
     <div class="title">
-      <a href="#">
+      <a href="{% url 'index' %}">
         <img class="logo" src="{% static 'coplate/assets/coplate-logo.svg' %}" alt="Coplate Logo">
       </a>
     </div>
@@ -17,6 +17,7 @@
       {% csrf_token %}
       <div>
         <input type="email" name="email" placeholder="이메일" autocomplete="email" class="cp-input" required id="id_email">
+        {{ form.email }}
       </div>
       <div>
         <input type="text" name="nickname" maxlength="15" placeholder="닉네임 (Coplate에서 사용되는 이름입니다)" class="error cp-input" required id="id_nickname">
@@ -32,7 +33,7 @@
     </form>
 
     <div class="info">
-      이미 회원이신가요?<a class="link" href="#">로그인</a>
+      이미 회원이신가요?<a class="link" href="{% url 'account_login' %}">로그인</a>
     </div>
   </main>
 </div>
