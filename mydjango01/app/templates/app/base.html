@@ -1,18 +1,23 @@
 <!DOCTYPE html>
+{% load django_bootstrap5 %}
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>장고 입문</title>
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
 </head>
 <body>
-  <h1>장고 입문</h1>
+  <div class="container">
+    <h1>장고 입문</h1>
 
-  {% block content %}
-  {% endblock content %}
-
-  <hr>
-  &copy; 2023. python 
+    {% block content %}
+    {% endblock content %}
+  
+    <br>
+    &copy; 2023. python 
+  </div>
 </body>
 </html>
