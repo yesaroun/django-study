@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Page</title>
-</head>
-<body>
-    <h1>Post List</h1>
-    
+{% extends 'app/base.html' %}
+
+{% block content %}
     {% for post in post_list %}
-        <div>
-            {{ post.id }}. {{ post.title }}
-        </div>
+    <a href="{{ post.id }}/">
+        {{ post.id }}. {{ post.title }}
+    </a>
+    <hr>
     {% endfor %}
-</body>
-</html>
+{% endblock content %}

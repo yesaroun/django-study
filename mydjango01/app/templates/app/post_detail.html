@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Page</title>
-</head>
-<body>
-    <h1>Post Detail : {{ post.titile }}</h1>
+{% extends 'app/base.html' %}
+
+{% block content %}
+    <h2>Post Detail : {{ post.titile }}</h2>
 
     {{ post.content }}
-</body>
-</html>
+    <hr>
+    <a href="/app/">목록으로</a>
+{% endblock content %}
