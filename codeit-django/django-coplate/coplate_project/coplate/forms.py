@@ -12,4 +12,7 @@ class SignupForm(forms.ModelForm):
     def signup(self, request, user):
         user.nickname = self.cleaned_data["nickname"]
         user.save()
+    
+    
+
 

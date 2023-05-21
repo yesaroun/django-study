@@ -17,13 +17,19 @@
     <form method="post">
       {% csrf_token %}
       {% for error in form.non_field_errors  %}
-      <div class="form-error error-message">이메일 또는 비밀번호가 올바르지 않습니다.</div>
+      <div class="form-error error-message">{{ error }}</div>
       {% endfor %}
       <div>
-        <input type="email" name="login" placeholder="이메일" autocomplete="email" class="cp-input" required id="id_login">
+        {{ form.login|add_class:"cp-input"|attr:"placeholder:이메일"|add_error_class:"error" }}
+        {% for error in form.login.errors  %}
+        <div class="form-error error-message">{{ error }}</div>
+        {% endfor %}
       </div>
       <div>
-        <input type="password" name="password" placeholder="비밀번호" autocomplete="current-password" class="cp-input" required id="id_password">
+        {{ form.password|add_class:"cp-input"|attr:"placeholder:비밀번호"|add_error_class:"error" }}
+        {% for error in form.password.errors  %}
+        <div class="form-error error-message">{{ error }}</div>
+        {% endfor %}
       </div>
       <button class="cp-button" type="submit">로그인</button>
     </form>
