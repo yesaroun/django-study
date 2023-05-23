@@ -9,4 +9,4 @@ class Book(models.Model):
     pages = models.IntegerField()
     price = models.IntegerField()
     published_date = models.DateField()
-    description = models.DateField()
+    description = models.TextField()
