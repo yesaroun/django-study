@@ -7,3 +7,4 @@ admin.site.register(User, UserAdmin)
 UserAdmin.fieldsets += (("Custom fields", {"fields": ("nickname",)}),)
 
 admin.site.register(Review)
+

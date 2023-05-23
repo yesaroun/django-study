@@ -22,13 +22,16 @@ class Review(models.Model):
     restaurant_link = models.URLField(validators=[validate_restaurant_link])
 
     RATING_CHOICES = [
-        (1, 1),
-        (2, 2),
-        (3, 3),
-        (4, 4),
-        (5, 5),
+        (1, "★"),
+        (2, "★★"),
+        (3, "★★★"),
+        (4, "★★★★"),
+        (5, "★★★★★"),
     ]
-    rating = models.IntegerField(choices=RATING_CHOICES)
+    rating = models.IntegerField(
+        choices=RATING_CHOICES,
+        default=None,
+    )
 
     image1 = models.ImageField(upload_to="review_pics")
     image2 = models.ImageField(

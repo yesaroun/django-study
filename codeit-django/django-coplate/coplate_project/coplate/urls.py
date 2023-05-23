@@ -3,5 +3,19 @@ from . import views
 
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path(
+        "",
+        views.IndexView.as_view(),
+        name="index",
+    ),
+    path(
+        "reivews/<int:review_id>/",
+        views.ReviewDetailView.as_view(),
+        name="review-detail",
+    ),
+    path(
+        "reviews/new/",
+        views.ReviewCreateView.as_view(),
+        name="review-create",
+    ),
 ]

@@ -1,17 +1,73 @@
-<navbar>
-  {% if user.is_authenticated %}
-  <a href="{% url 'account_logout' %}">로그아웃</a>
-  {% else %}
-  <a href="{% url 'account_login' %}">로그인</a>
-  <a href="{% url 'account_signup' %}">회원가입</a>
-  {% endif %}
-</navbar>
+{% extends "coplate_base/base_with_navbar.html" %}
 
-<h1>홈페이지</h1>
+{% block content %}
+<main class="site-body">
+  <div class="main-header">
+    <div class="content">
+      <div class="fg"></div>
+      <h1>오늘은 어디서 먹을까?</h1>
+    </div>
+  </div>
 
-{% if user.is_authenticated %}
-<p>{{user}}님의 닉네임은 {{user.nickname}}입니다.</p>
-<p><a href="{% url "account_change_password" %}">비밀번호 변경</a></p>
-{% else %}
-<p>로그아웃된 상태입니다.</p>
-{% endif %}
+  <div class="content-list max-content-width">
+    <div class="header">
+      <h2>리뷰 목록</h2>
+      <a class="cp-ic-button circle newreview" href="{% url 'review-create' %}">리뷰 작성</a>
+    </div>
+
+      <div class="contents">
+        {% for review in reviews %}
+          <a href="{% url 'review-detail' review.id %}">
+            <section class="cp-card content">
+              <div class="thumb" style="background-image: url('{{ review.image1.url }}');"></div>
+              <div class="body">
+                <span class="cp-chip green">{{ review.restaurant_name }}</span>
+                <h2 class="title">{{ review.title }}</h2>
+                <date class="date">{{ review.dt_created|date:"Y년 n월 j일" }}</date>
+                <div class="metadata">
+                  <div class="review-rating">
+                    <span class="cp-stars">
+                      {% for i in ""|ljust:review.rating %}★{% endfor %}
+                    </span>
+                  </div>
+                  <div class="review-author">
+                    <span>{{ reivew.author.nickname }}</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </a> 
+        {% empty %}
+          <p class="empty">아직 리뷰가 없어요 :(</p>
+        {% endfor %}
+        
+
+      </div>
+
+      {% if is_paginated %}
+        <footer>
+          <ul class="pagination">
+            {% if page_obj.has_previous %}
+              <li><a href="?page=1">처음</a></li>
+              <li><a href="?page={{ page_obj.previous_page_number }}">이전</a></li>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+              {% if page_obj.number == num %}
+                <li class="current">{{ num }}</li>
+              {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                <li><a href="?page={{ num }}">{{ num }}</a></li>
+              {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+              <li><a href="?page={{ page_obj.next_page_number }}">다음</a></li>
+              <li><a href="?page={{ page_obj.paginator.num_pages }}">마지막</a></li>
+            {% endif %}
+          </ul>
+        </footer>
+      {% endif %}
+    </article>
+  </div>
+</main>
+{% endblock content %}
