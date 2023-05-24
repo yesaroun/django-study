@@ -1,0 +1,73 @@
+{% extends "podomarket_base/base_with_navbar.html" %}
+
+{% load widget_tweaks %}
+
+{% block title %}새 게시글 작성 | 포도마켓{% endblock title %}
+
+{% block content %}
+<form class="post-form" method="post" autocomplete="off" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="title">
+    {{ form.title|add_class:"podo-input"|add_error_class:"error"|attr:"placeholder:제목" }}
+    {% for error in form.title.errors %}
+      <div class="error-message">{{ error }}</div>
+    {% endfor %}
+  </div>
+  <div class="price">
+    {{ form.item_price|add_class:"podo-input"|add_error_class:"error"|attr:"placeholder:판매 가격" }}
+    {% for error in form.item_price.errors %}
+      <div class="error-message">{{ error }}</div>
+    {% endfor %}
+  </div>
+  <div class="condition">
+    <div class="radios">
+      {% for radio in form.item_condition %}
+        {{ radio }}
+      {% endfor %}
+    </div>
+    {% for error in form.item_condition.errors %}
+      <div class="error-message">{{ error }}</div>
+    {% endfor %}
+  </div>
+  <div class="detail">
+    {{ form.item_details|add_class:"podo-input"|add_error_class:"error"|attr:"placeholder:상세정보" }}
+    {% for error in form.item_detail.errors %}
+      <div class="error-message">{{ error }}</div>
+    {% endfor %}
+  </div>
+  <div class="file">
+    <div class="podo-input file-input">
+      <div class="file-content">
+        {{ form.image1 }}
+      </div>
+    </div>
+    {% for error in form.image1.errors %}
+      <div class="error-message">{{ error }}</div>
+    {% endfor %}
+  </div>
+  <div class="file">
+    <div class="podo-input file-input">
+      <div class="file-content">
+        {{ form.image2 }}
+      </div>
+    </div>
+    {% for error in form.image2.errors %}
+      <div class="error-message">{{ error }}</div>
+    {% endfor %} 
+  </div>
+  <div class="file">
+    <div class="podo-input file-input">
+      <div class="file-content">
+        {{ form.image3 }}
+      </div>
+    </div>
+    {% for error in form.image3.errors %}
+      <div class="error-message">{{ error }}</div>
+    {% endfor %} 
+  </div>
+  <div class="buttons">
+    <a class="podo-button large secondary cancel" href="{% url 'index' %}">취소</a>
+    <button class="podo-button large primary submit" type="submit">완료</button>
+  </div>
+</form>
+{% endblock content %}

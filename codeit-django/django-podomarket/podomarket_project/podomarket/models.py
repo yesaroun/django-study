@@ -40,6 +40,7 @@ class Post(models.Model):
     item_condition = models.CharField(
         max_length=10,
         choices=CONDITION_CHOICES,
+        default=None,
     )
     item_details = models.TextField(blank=True)
     image1 = models.ImageField(upload_to="item_pics")
