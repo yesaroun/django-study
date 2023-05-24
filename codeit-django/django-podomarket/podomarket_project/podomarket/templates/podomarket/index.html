@@ -27,7 +27,7 @@
           <div class="meta">
             {{ post.dt_created|date:"Y.m.d" }}&nbsp;|&nbsp;{{ post.author.address }}
           </div>
-          <a class="podo-button primary button" href="#">자세히보기</a>
+          <a class="podo-button primary button" href="{% url 'post-detail' post.id %}">자세히보기</a>
         </div>
       </div>
     {% endfor %}
