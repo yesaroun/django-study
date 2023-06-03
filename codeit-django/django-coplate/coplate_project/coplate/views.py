@@ -45,16 +45,25 @@ class ReviewCreateView(CreateView):
 
 class ReviewUpdateView(UpdateView):
     model = Review
-    form_class = ReviewForm 
+    form_class = ReviewForm
     template_name = "coplate/review_form.html"
     pk_url_kwarg = "review_id"
-    
+
     def get_success_url(self) -> str:
         return reverse(
             "review-detail",
             kwargs={"review_id": self.object.id},
         )
-        
+
+
+class ReviewDeleteView(DeleteView):
+    model = Review
+    template_name = "coplate/review_confirm_delete.html"
+    pk_url_kwarg = "review_id"
+
+    def get_success_url(self) -> str:
+        return reverse("index",)
+
 
 class CustomPasswordChangeView(PasswordChangeView):
     def get_success_url(self) -> str:
