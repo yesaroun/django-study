@@ -17,7 +17,7 @@ class IndexView(ListView):
     ordering = ["-dt_updated"]
 
 
-class PostDetailView(DeleteView):
+class PostDetailView(LoginRequiredMixin, DeleteView):
     model = Post
     template_name = "podomarket/post_detail.html"
     pk_url_kwarg = "post_id"
@@ -45,25 +45,39 @@ class PostCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
         return EmailAddress.objects.filter(user=user, verified=True).exists()
 
 
-class PostUpdateView(UpdateView):
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     form_class = PostUpdateForm
     template_name = "podomarket/post_form.html"
     pk_url_kwarg = "post_id"
+    
+    raise_exception = True
+    redirect_unauthenticated_users = False
 
     def get_success_url(self):
         return reverse("post-detail", kwargs={"post_id": self.object.id})
+    
+    def test_func(self, user):
+        post = self.get_object()
+        return post.author == user
 
 
-class PostDeleteView(DeleteView):
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = "podomarket/post_confirm_delete.html"
     pk_url_kwarg = "post_id"
+    
+    raise_exception = True
+    redirect_unauthenticated_users = False
 
     def get_success_url(self) -> str:
         return reverse("index")
+    
+    def test_func(self, user):
+        post = self.get_object()
+        return post.author == user
 
-
+ㅋ
 class CustomPasswordChangeView(PasswordChangeView):
     def get_success_url(self) -> str:
         return reverse("index")
