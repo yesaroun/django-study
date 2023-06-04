@@ -58,6 +58,7 @@ class Post(models.Model):
     )
     dt_created = models.DateTimeField(auto_now_add=True)
     dt_updated = models.DateTimeField(auto_now=True)
+    is_sold = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title

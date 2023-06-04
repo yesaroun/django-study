@@ -10,8 +10,8 @@
   <div class="header">
     <a href="{% url 'index' %}">&lt; 목록으로</a>
     <div class="buttons">
-      <a class="podo-button small negative" href="#">삭제</a>
-      <a class="podo-button small secondary" href="#">수정</a>
+      <a class="podo-button small negative" href="{% url 'post-delete' post.id %}">삭제</a>
+      <a class="podo-button small secondary" href="{% url 'post-update' post.id %}">수정</a>
     </div>
   </div>
   <article>
