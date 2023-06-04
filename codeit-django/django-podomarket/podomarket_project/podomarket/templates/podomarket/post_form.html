@@ -81,6 +81,15 @@
       <div class="error-message">{{ error }}</div>
     {% endfor %} 
   </div>
+  {% if form.is_sold %}
+    <div class="is-sold">
+      <label for="{{ form.is_solid.id_for_label }}">거래 완료</label>
+      {{ form.is_sold }}
+      {% for error in form.is_sold.errors %}
+        <div class="error-message">{{ error }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
   <div class="buttons">
     <a 
       class="podo-button large secondary cancel" 
