@@ -17,6 +17,11 @@ urlpatterns = [
         name="account_email_confirmation_done",
     ),
     path(
+        "email-confirmation-required",
+        TemplateView.as_view(template_name="account/email_confirmation_required.html"),
+        name="account_email_confirmation_required",
+    ),
+    path(
         "password/change/",
         CustomPasswordChangeView.as_view(),
         name="account_change_password",
