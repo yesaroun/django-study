@@ -7,10 +7,12 @@ from django.views.generic import (
     UpdateView,
     DeleteView,
 )
+from braces.views import LoginRequiredMixin, UserPassesTestMixin
 from allauth.account.views import PasswordChangeView
-from braces.views import LoginRequiredMixin
+from allauth.account.models import EmailAddress
 from coplate.models import Review
 from coplate.forms import ReviewForm
+from coplate.functions import confirmation_required_redirect
 from typing import List
 
 
@@ -28,10 +30,13 @@ class ReviewDetailView(DetailView):
     pk_url_kwarg = "review_id"
 
 
-class ReviewCreateView(LoginRequiredMixin, CreateView):
+class ReviewCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Review
     form_class = ReviewForm
     template_name = "coplate/review_form.html"
+    
+    redirect_unauthenticated_users = True
+    raise_exception = confirmation_required_redirect
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -42,6 +47,9 @@ class ReviewCreateView(LoginRequiredMixin, CreateView):
             "review-detail",
             kwargs={"review_id": self.object.id},
         )
+    
+    def test_func(self, user):
+        return EmailAddress.objects.filter(user=user, verified=True).exists()
 
 
 class ReviewUpdateView(UpdateView):

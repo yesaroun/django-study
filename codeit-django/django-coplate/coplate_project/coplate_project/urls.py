@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 from django.conf import settings
-from django.conf.urls.static import static 
+from django.conf.urls.static import static
 from coplate.views import CustomPasswordChangeView
 
 
@@ -15,6 +15,11 @@ urlpatterns = [
         include("coplate.urls"),
     ),
     # allauth
+    path(
+        "email-confirmation-required/",
+        TemplateView.as_view(template_name="account/email_confirmation_required.html"),
+        name="account_email_confirmation_required",
+    ),
     path(
         "email-confirmation-done/",
         TemplateView.as_view(template_name="account/email_confirmation_done.html"),
