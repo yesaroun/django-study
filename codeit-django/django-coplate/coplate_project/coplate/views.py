@@ -8,6 +8,7 @@ from django.views.generic import (
     DeleteView,
 )
 from allauth.account.views import PasswordChangeView
+from braces.views import LoginRequiredMixin
 from coplate.models import Review
 from coplate.forms import ReviewForm
 from typing import List
@@ -27,7 +28,7 @@ class ReviewDetailView(DetailView):
     pk_url_kwarg = "review_id"
 
 
-class ReviewCreateView(CreateView):
+class ReviewCreateView(LoginRequiredMixin, CreateView):
     model = Review
     form_class = ReviewForm
     template_name = "coplate/review_form.html"
