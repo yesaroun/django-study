@@ -4,7 +4,8 @@ from .models import User, Review
 
 
 admin.site.register(User, UserAdmin)
-UserAdmin.fieldsets += (("Custom fields", {"fields": ("nickname",)}),)
+UserAdmin.fieldsets += (
+    ("Custom fields", {"fields": ("nickname", "profile_pic", "intro")}),
+)
 
 admin.site.register(Review)
-

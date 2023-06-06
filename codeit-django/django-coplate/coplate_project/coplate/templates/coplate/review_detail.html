@@ -14,6 +14,7 @@
       <h1 class="title">{{ review.title }}</h1>
       <div class="author">
         <a class="review-author" href="#">
+          <div class="cp-avatar" style="background-image: url('{{ review.author.profile_pic.url }}')"></div>
           <span>{{ review.author.nickname }}</span>
         </a>
       </div>
