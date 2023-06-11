@@ -22,7 +22,9 @@ class IndexView(ListView):
     template_name = "podomarket/index.html"
     context_object_name = "posts"
     paginate_by = 8
-    ordering = ["-dt_updated"]
+
+    def get_queryset(self):
+        return Post.objects.filter(is_sold=False).order_by("-dt_updated")
 
 
 class PostDetailView(LoginRequiredMixin, DeleteView):
