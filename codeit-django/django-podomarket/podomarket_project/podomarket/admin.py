@@ -9,6 +9,7 @@ UserAdmin.fieldsets += (
         "Custom fields",
         {
             "fields": (
+                "profile_pic",
                 "nickname",
                 "kakao_id",
                 "address",

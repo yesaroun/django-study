@@ -77,7 +77,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         post = self.get_object()
         return post.author == user
 
-ㅋ
+
 class CustomPasswordChangeView(PasswordChangeView):
     def get_success_url(self) -> str:
         return reverse("index")
