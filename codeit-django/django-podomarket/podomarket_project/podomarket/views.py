@@ -13,7 +13,7 @@ from allauth.account.views import PasswordChangeView
 from allauth.account.models import EmailAddress
 from braces.views import LoginRequiredMixin, UserPassesTestMixin
 from .models import Post, User
-from .forms import PostCreateForm, PostUpdateForm
+from .forms import PostCreateForm, PostUpdateForm, ProfileForm
 from .functions import confirmation_required_redirect
 
 
@@ -117,6 +117,18 @@ class UserPostListView(ListView):
         context = super().get_context_data(**kwargs)
         context["profile_user"] = get_object_or_404(User, id=self.kwargs.get("user_id"))
         return context
+
+
+class ProfileSetView(LoginRequiredMixin, UpdateView):
+    model = User
+    form_class = ProfileForm
+    template_name = "podomarket/profile_set_form.html"
+
+    def get_object(self, querset=None):
+        return self.request.user
+
+    def get_success_url(self):
+        return reverse("index")
 
 
 class CustomPasswordChangeView(PasswordChangeView):

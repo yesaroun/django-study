@@ -32,24 +32,6 @@
         <div class="error-message">{{ error }}</div>
       {% endfor %}
     </div>
-    <div class="nickname">
-      {{ form.nickname|add_class:"podo-input"|attr:"placeholder:닉네임"|add_error_class:"error" }}
-      {% for error in form.nickname.errors %}
-        <div class="error-message">{{ error }}</div>
-      {% endfor %}
-    </div>
-    <div class="kakao_id">
-      {{ form.kakao_id|add_class:"podo-input"|attr:"placeholder:카카오 ID"|add_error_class:"error" }}
-      {% for error in form.kakao_id.errors %}
-        <div class="error-message">{{ error }}</div>
-      {% endfor %}
-    </div>
-    <div class="address">
-      {{ form.address|add_class:"podo-input"|attr:"placeholder:주소 (예: 서울시 관악구 신림동)"|add_error_class:"error" }}
-      {% for error in form.address.errors %}
-        <div class="error-message">{{ error }}</div>
-      {% endfor %}
-    </div>
     <button class="podo-button large primary submit" type="submit">회원가입</button>
   </form>
 

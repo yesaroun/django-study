@@ -22,4 +22,5 @@ urlpatterns = [
         views.UserPostListView.as_view(),
         name="user-post-list",
     ),
+    path("set-profile/", views.ProfileSetView.as_view(), name="profile-set"),
 ]
