@@ -34,7 +34,7 @@
       {% if post.is_sold %}<div class="is-sold">거래완료</div>{% endif %}
     </div>
 
-    <a class="profile-link" href="#">
+    <a class="profile-link" href="{% url 'profile' post.author.id %}">
       <div class="podo-box gray-background profile">
         <div class="profile-pic" style="background-image: url('{{ post.author.profile_pic.url }}')"></div>
         <div class="profile-info">
