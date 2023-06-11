@@ -14,6 +14,15 @@
       ></div>
       <div class="info">
         <h1 class="username">{{ profile_user.nickname }}</h1>
+        {% if profile_user == user %}
+          <a class="edit" href="{% url 'profile-update' %}">
+            <img class="cp-icon small" src="{% static 'coplate/icons/ic-pen.svg' %}" alt="Pen Icon">
+            프로필 수정
+          </a>
+          <a class="edit" href="{% url 'account_change_password' %}">
+            비밀번호 변경
+          </a>
+        {% endif %}
         {% if profile_user.intro %}
           <div>
             <p class="cp-chip intro">{{ profile_user.intro }}</p>
