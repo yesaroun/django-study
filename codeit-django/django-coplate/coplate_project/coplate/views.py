@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.db.models.query import QuerySet
+from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views.generic import (
     ListView,
@@ -99,6 +100,22 @@ class ProfileView(DetailView):
         context["user_reviews"] = Review.objects.filter(author__id=user_id).order_by(
             "-dt_created"
         )[:4]
+        return context
+
+
+class UserReviewListView(ListView):
+    model = Review
+    template_name = "coplate/user_review_list.html"
+    context_object_name = "user_reviews"
+    paginate_by = 4
+
+    def get_queryset(self) -> QuerySet[Any]:
+        user_id = self.kwargs.get("user_id")
+        return Review.objects.filter(author__id=user_id).order_by("dt_created")
+    
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["profile_user"] = get_object_or_404(User, id=self.kwargs.get("user_id"))
         return context
 
 
