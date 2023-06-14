@@ -1,7 +1,9 @@
 from django.urls import path
 from . import views
 
-app_name = "users"
 
-urlpatterns = [path("login", views.LoginView.as_view(), name="login")]
+app_name = "uesrs"
 
+urlpatterns = [
+    path("login", views.LoginView.as_view(), name="login")
+]
