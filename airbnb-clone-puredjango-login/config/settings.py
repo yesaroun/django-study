@@ -136,5 +136,5 @@ MEDIA_URL = "/media/"
 # Email Configuration
 EMAIL_HOST = "smtp.mailgun.org"
 EMAIL_PORT = "587"
-EMAIL_HOST_USER = "brad@sandboxf0ed7b7a630b49efbba2d201d1cac7a7.mailgun.org"
-EMAIL_HOST_PASSWORD = "x"
+MAILGUN_USERNAME = os.environ.get("MAILGUN_USERNAME")
+MAILGUN_PASSWORD = os.environ.get("MAILGUN_PASSWORD")
