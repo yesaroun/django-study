@@ -32,7 +32,7 @@ class SignUpForm(forms.Form):
         email = self.cleaned_data.get("email")
         try:
             models.User.objects.get(email=email)
-            raise forms.ValidationError("User already exist")
+            raise forms.ValidationError("User already exists with that email")
         except models.User.DoesNotExist:
             return email 
         
