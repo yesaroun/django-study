@@ -3,6 +3,14 @@
   "python.linting.flake8Enabled": true,
   "python.linting.pylintEnabled": false,
   "python.linting.enabled": true,
-  "python.formatting.provider": "black",
-  "python.linting.flake8Args": ["--max-line-length=88"]
+  "python.formatting.provider": "none",
+  "python.linting.flake8Args": [
+    "--max-line-length=88"
+  ],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": null,
+  "python.analysis.typeCheckingMode": "basic",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
 }

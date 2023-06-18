@@ -35,3 +35,7 @@ class SignUpView(FormView):
 		"last_name": "Serr",
 		"email": "it@naver.com",
 	}
+    
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
