@@ -1,0 +1,6 @@
+{
+"python.pythonPath": "/Users/akor1/Documents/programing/code/django-study/codeit-django/django-podomarket2/podomarket_project/.venv/bin/python",
+"python.linting.pylintPath": "/Users/akor1/.pyenv/shims/pylint",
+"python.linting.pylintEnabled": true,
+"python.linting.enabled": true
+}
