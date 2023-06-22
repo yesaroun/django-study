@@ -6,14 +6,16 @@ from .validators import validate_no_special_characters, validate_restaurant_link
 
 class User(AbstractUser):
     nickname = models.CharField(
-        max_length=15, 
-        unique=True, 
+        max_length=15,
+        unique=True,
         null=True,
         validators=[validate_no_special_characters],
-        error_messages={'unique': '이미 사용중인 닉네임입니다.'},
+        error_messages={"unique": "이미 사용중인 닉네임입니다."},
     )
 
-    profile_pic = models.ImageField(default='default_profile_pic.jpg', upload_to='profile_pics')
+    profile_pic = models.ImageField(
+        default="default_profile_pic.jpg", upload_to="profile_pics"
+    )
 
     intro = models.CharField(max_length=60, blank=True)
 
@@ -29,19 +31,19 @@ class Review(models.Model):
     restaurant_link = models.URLField(validators=[validate_restaurant_link])
 
     RATING_CHOICES = [
-        (1, '★'),
-        (2, '★★'),
-        (3, '★★★'),
-        (4, '★★★★'),
-        (5, '★★★★★'),
+        (1, "★"),
+        (2, "★★"),
+        (3, "★★★"),
+        (4, "★★★★"),
+        (5, "★★★★★"),
     ]
     rating = models.IntegerField(choices=RATING_CHOICES, default=None)
 
-    image1 = models.ImageField(upload_to='review_pics')
+    image1 = models.ImageField(upload_to="review_pics")
 
-    image2 = models.ImageField(upload_to='review_pics', blank=True)
+    image2 = models.ImageField(upload_to="review_pics", blank=True)
 
-    image3 = models.ImageField(upload_to='review_pics', blank=True)
+    image3 = models.ImageField(upload_to="review_pics", blank=True)
 
     content = models.TextField()
 
