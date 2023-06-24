@@ -23,24 +23,26 @@ from coplate.views import CustomPasswordChangeView
 
 urlpatterns = [
     # admin
-    path('admin/', admin.site.urls),
-
+    path("admin/", admin.site.urls),
     # coplate
-    path('', include('coplate.urls')),
-
+    path("", include("coplate.urls")),
     # allauth
     path(
-        'email-confirmation-required/',
-        TemplateView.as_view(template_name='account/email_confirmation_required.html'),
-        name='account_email_confirmation_required',
+        "email-confirmation-required/",
+        TemplateView.as_view(template_name="account/email_confirmation_required.html"),
+        name="account_email_confirmation_required",
     ),
     path(
-        'email-confirmation-done/',
-        TemplateView.as_view(template_name='account/email_confirmation_done.html'),
-        name='account_email_confirmation_done',
+        "email-confirmation-done/",
+        TemplateView.as_view(template_name="account/email_confirmation_done.html"),
+        name="account_email_confirmation_done",
     ),
-    path('password/change/', CustomPasswordChangeView.as_view(), name='account_change_password'),
-    path('', include('allauth.urls')),
+    path(
+        "password/change/",
+        CustomPasswordChangeView.as_view(),
+        name="account_change_password",
+    ),
+    path("", include("allauth.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
