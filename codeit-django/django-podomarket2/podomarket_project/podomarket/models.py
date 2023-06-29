@@ -11,7 +11,7 @@ class User(AbstractUser):
         unique=True,
         null=True,
         validators=[validate_no_special_characters],
-        error_messages={'unique': '이미 사용중인 닉네임입니다.'},
+        error_messages={"unique": "이미 사용중인 닉네임입니다."},
     )
 
     kakao_id = models.CharField(
@@ -26,7 +26,9 @@ class User(AbstractUser):
         validators=[validate_no_special_characters],
     )
 
-    profile_pic = models.ImageField(default='default_profile_pic.jpg', upload_to='profile_pics')
+    profile_pic = models.ImageField(
+        default="default_profile_pic.jpg", upload_to="profile_pics"
+    )
 
     def __str__(self):
         return self.email
@@ -38,21 +40,23 @@ class Post(models.Model):
     item_price = models.IntegerField(validators=[MinValueValidator(1)])
 
     CONDITION_CHOICES = [
-        ('새제품', '새제품'),
-        ('최상', '최상'),
-        ('상', '상'),
-        ('중', '중'),
-        ('하', '하'),
+        ("새제품", "새제품"),
+        ("최상", "최상"),
+        ("상", "상"),
+        ("중", "중"),
+        ("하", "하"),
     ]
-    item_condition = models.CharField(max_length=10, choices=CONDITION_CHOICES, default=None)
+    item_condition = models.CharField(
+        max_length=10, choices=CONDITION_CHOICES, default=None
+    )
 
     item_details = models.TextField(blank=True)
 
-    image1 = models.ImageField(upload_to='item_pics')
+    image1 = models.ImageField(upload_to="item_pics")
 
-    image2 = models.ImageField(upload_to='item_pics', blank=True)
+    image2 = models.ImageField(upload_to="item_pics", blank=True)
 
-    image3 = models.ImageField(upload_to='item_pics', blank=True)
+    image3 = models.ImageField(upload_to="item_pics", blank=True)
 
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -61,6 +65,15 @@ class Post(models.Model):
     dt_updated = models.DateTimeField(auto_now=True)
 
     is_sold = models.BooleanField(default=False)
+
+    PRICE_RANGES = [
+        ("H", "High"),
+        ("M", "medium"),
+        ("L", "Low"),
+    ]
+    item_price_range = models.CharField(
+        max_length=10, choices=PRICE_RANGES, default=None, null=True
+    )
 
     def __str__(self):
         return self.title
