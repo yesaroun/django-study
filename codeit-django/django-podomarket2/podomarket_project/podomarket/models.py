@@ -35,7 +35,7 @@ class User(AbstractUser):
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=60)
 
     item_price = models.IntegerField(validators=[MinValueValidator(1)])
 
@@ -66,14 +66,16 @@ class Post(models.Model):
 
     is_sold = models.BooleanField(default=False)
 
-    PRICE_RANGES = [
-        ("H", "High"),
-        ("M", "medium"),
-        ("L", "Low"),
-    ]
-    item_price_range = models.CharField(
-        max_length=10, choices=PRICE_RANGES, default=None, null=True
-    )
-
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    content = models.TimeField(max_length=500, blank=True)
+    dt_created = models.DateTimeField(auto_now_add=True)
+    dt_updated = models.DateTimeField(auto_now=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.content[:30]
