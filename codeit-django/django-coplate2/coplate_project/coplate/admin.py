@@ -1,6 +1,16 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+from django.contrib.contenttypes.admin import GenericStackedInline
 from .models import User, Review, Comment, Like
+
+
+class CommentInline(admin.StackedInline):
+    model = Comment
+
+
+class LikeInline(GenericStackedInline):
+    model = Like
+
 
 UserAdmin.fieldsets += (
     (
@@ -16,10 +26,22 @@ UserAdmin.fieldsets += (
     ),
 )
 
+
+class ReviewAdmin(admin.ModelAdmin):
+    inlines = (
+        CommentInline,
+        LikeInline,
+    )
+
+
+class CommentAdmin(admin.ModelAdmin):
+    inlines = (LikeInline,)
+
+
 admin.site.register(User, UserAdmin)
 
-admin.site.register(Review)
+admin.site.register(Review, ReviewAdmin)
 
-admin.site.register(Comment)
+admin.site.register(Comment, CommentAdmin)
 
 admin.site.register(Like)
