@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-
-from .models import User, Review
+from .models import User, Review, Comment, Like
 
 UserAdmin.fieldsets += (
     (
@@ -11,6 +10,7 @@ UserAdmin.fieldsets += (
                 "nickname",
                 "profile_pic",
                 "intro",
+                "following",
             )
         },
     ),
@@ -19,3 +19,7 @@ UserAdmin.fieldsets += (
 admin.site.register(User, UserAdmin)
 
 admin.site.register(Review)
+
+admin.site.register(Comment)
+
+admin.site.register(Like)
