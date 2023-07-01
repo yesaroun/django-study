@@ -61,6 +61,11 @@ class Review(models.Model):
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        # meta 뜻: 자신의
+        # 그래서 자기 자신에 대한 설정임
+        ordering = ["-dt_created"]
 
 
 class Comment(models.Model):
@@ -76,6 +81,9 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.content[:30]
+    
+    class Meta:
+        ordering  = ["-dt_created"]
 
 
 class Like(models.Model):

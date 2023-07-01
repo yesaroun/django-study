@@ -22,7 +22,7 @@ from .functions import confirmation_required_redirect
 class IndexView(View):
     def get(self, request, *args, **kwargs):
         context = {}
-        context["latest_reviews"] = Review.objects.all().order_by("-dt_created")[:4]
+        context["latest_reviews"] = Review.objects.all()[:4]
         return render(request, "coplate/index.html", context)
 
 
@@ -31,7 +31,6 @@ class ReviewListView(ListView):
     context_object_name = "reviews"
     template_name = "coplate/review_list.html"
     paginate_by = 8
-    ordering = ["-dt_created"]
 
 
 class ReviewDetailView(DetailView):
@@ -102,7 +101,7 @@ class ProfileView(DetailView):
         context = super().get_context_data(**kwargs)
         context["user_reviews"] = Review.objects.filter(
             author__id=self.kwargs.get("user_id")
-        ).order_by("-dt_created")[:4]
+        )[:4]
         return context
 
 
@@ -113,9 +112,7 @@ class UserReviewListView(ListView):
     paginate_by = 4
 
     def get_queryset(self):
-        return Review.objects.filter(author__id=self.kwargs.get("user_id")).order_by(
-            "-dt_created"
-        )
+        return Review.objects.filter(author__id=self.kwargs.get("user_id"))
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
