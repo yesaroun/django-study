@@ -23,7 +23,7 @@ class User(AbstractUser):
 
     intro = models.CharField(max_length=60, blank=True)
 
-    following = models.ManyToManyField("self", symmetrical=False)
+    following = models.ManyToManyField("self", symmetrical=False, blank=True)
 
     def __str__(self):
         return self.email
@@ -61,7 +61,7 @@ class Review(models.Model):
 
     def __str__(self):
         return self.title
-    
+
     class Meta:
         # meta 뜻: 자신의
         # 그래서 자기 자신에 대한 설정임
@@ -81,9 +81,9 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.content[:30]
-    
+
     class Meta:
-        ordering  = ["-dt_created"]
+        ordering = ["-dt_created"]
 
 
 class Like(models.Model):
@@ -96,7 +96,6 @@ class Like(models.Model):
     object_id = models.PositiveIntegerField()
 
     liked_object = GenericForeignKey()
-    
+
     def __str__(self):
         return f"({self.user}, {self.liked_object})"
-    
