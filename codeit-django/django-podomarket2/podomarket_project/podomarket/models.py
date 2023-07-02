@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinValueValidator
-from django.contrib.contenttypes.models import ContentType 
+from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.db import models
 from .validators import validate_no_special_characters
@@ -30,7 +30,7 @@ class User(AbstractUser):
     profile_pic = models.ImageField(
         default="default_profile_pic.jpg", upload_to="profile_pics"
     )
-    
+
     following = models.ManyToManyField("self", symmetrical=False)
 
     def __str__(self):
@@ -94,7 +94,7 @@ class Like(models.Model):
     dt_created = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    object_id = models.PositiveIntegerField() 
+    object_id = models.PositiveIntegerField()
     liked_object = GenericForeignKey()
 
     def __str__(self):
