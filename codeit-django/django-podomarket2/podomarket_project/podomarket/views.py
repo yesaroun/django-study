@@ -1,12 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-
 from allauth.account.models import EmailAddress
 from allauth.account.views import PasswordChangeView
-
 from braces.views import LoginRequiredMixin, UserPassesTestMixin
-
 from .forms import PostCreateForm, PostUpdateForm, ProfileForm
 from .functions import confirmation_required_redirect
 from .models import Post, User
@@ -19,7 +16,7 @@ class IndexView(ListView):
     paginate_by = 8
 
     def get_queryset(self):
-        return Post.objects.filter(is_sold=False).order_by('-dt_created')
+        return Post.objects.filter(is_sold=False)
 
 
 class PostDetailView(DetailView):
@@ -88,7 +85,7 @@ class ProfileView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['user_posts'] = Post.objects.filter(author__id=self.kwargs.get('user_id')).order_by('-dt_created')[:8]
+        context['user_posts'] = Post.objects.filter(author__id=self.kwargs.get('user_id'))[:8]
         return context
 
 
@@ -99,7 +96,7 @@ class UserPostListView(ListView):
     paginate_by = 8
 
     def get_queryset(self):
-        return Post.objects.filter(author__id=self.kwargs.get('user_id')).order_by('-dt_created')
+        return Post.objects.filter(author__id=self.kwargs.get('user_id'))
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

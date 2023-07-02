@@ -72,6 +72,9 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        ordering = ["-dt_created"]
+
 
 class Comment(models.Model):
     content = models.TimeField(max_length=500, blank=True)
@@ -82,6 +85,9 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.content[:30]
+
+    class Meta:
+        ordering = ["dt_created"]
 
 
 class Like(models.Model):
