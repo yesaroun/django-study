@@ -288,3 +288,5 @@ pyrightconfig.json
 
 *.env
 *.venv
+*.lock 
+*.toml
