@@ -16,6 +16,7 @@ class House(models.Model):
         verbose_name="Pets Allowed?",
         help_text="Does this house allow pets?",
     )
+    owner = models.ForeignKey("users.User", on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return self.name + ""
