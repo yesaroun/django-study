@@ -14,9 +14,9 @@ from braces.views import LoginRequiredMixin, UserPassesTestMixin
 from allauth.account.views import PasswordChangeView
 from allauth.account.models import EmailAddress
 
-from .models import Review, User
-from .forms import ReviewForm, ProfileForm
-from .functions import confirmation_required_redirect
+from coplate.models import Review, User
+from coplate.forms import ReviewForm, ProfileForm
+from coplate.functions import confirmation_required_redirect
 
 
 class IndexView(View):

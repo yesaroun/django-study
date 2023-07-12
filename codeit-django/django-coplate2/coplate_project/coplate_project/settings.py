@@ -38,14 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-
     'coplate',
-
     'widget_tweaks', 
-
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'rest_framework',
 ]
 
 SITE_ID = 1
