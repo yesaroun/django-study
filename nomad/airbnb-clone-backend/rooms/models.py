@@ -39,7 +39,7 @@ class Room(CommonModel):
         return self.amenities.count()
 
     def rating(room):
-        count = room.reivews.count()
+        count = room.reviews.count()
         if count == 0:
             return "No Reviews"
         else:
