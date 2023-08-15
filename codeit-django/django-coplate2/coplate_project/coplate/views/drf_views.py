@@ -10,13 +10,13 @@ from coplate.serializers import (
     ReviewSerializer,
     ReviewListSerializer,
     ReviewDetailSerializer,
+    ReviewUpdateSerializer,
 )
 from coplate.models import Review
 from coplate.paginations import ReviewListPagination
 
 
 class IndexView(APIView):
-
     @swagger_auto_schema(
         operation_description="List latest reviews",
         responses={200: ReviewSerializer(many=True)},
@@ -66,7 +66,6 @@ class ReviewListView(APIView):
 
 
 class ReviewDetailView(APIView):
-
     @swagger_auto_schema(
         operation_description="Retrieve a review",
         responses={200: ReviewDetailSerializer()},
@@ -79,3 +78,22 @@ class ReviewDetailView(APIView):
 
         serializer = ReviewDetailSerializer(review)
         return Response(serializer.data)
+
+    @swagger_auto_schema(
+        operation_description="Update a review",
+        request_body=ReviewUpdateSerializer,
+        responses={200: ReviewDetailSerializer()},
+    )
+    def put(self, request, review_id, format=None):
+        try:
+            review = Review.objects.get(pk=review_id)
+        except Review.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = ReviewUpdateSerializer(review, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            updated_review = Review.objects.get(pk=review_id)
+            detail_serializer = ReviewDetailSerializer(updated_review)
+            return Response(detail_serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -26,8 +26,26 @@ class ReviewListSerializer(serializers.ModelSerializer):
 
 class ReviewDetailSerializer(serializers.ModelSerializer):
     author_name = serializers.CharField(source="author.nickname")
-    
+
     class Meta:
         model = Review
         fields = "__all__"
-        
+
+
+class ReviewUpdateSerializer(serializers.ModelSerializer):
+    rating = serializers.ChoiceField(
+        choices=Review.RATING_CHOICES,
+    )
+
+    class Meta:
+        model = Review
+        fields = (
+            "title",
+            "restaurant_name",
+            "restaurant_link",
+            "rating",
+            "image1",
+            "image2",
+            "image3",
+            "content",
+        )
