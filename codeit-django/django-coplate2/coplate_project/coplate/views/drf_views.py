@@ -1,6 +1,11 @@
+from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework.parsers import MultiPartParser
+
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
+
 from coplate.serializers import (
     ReviewSerializer,
     ReviewListSerializer,
@@ -11,6 +16,11 @@ from coplate.paginations import ReviewListPagination
 
 
 class IndexView(APIView):
+
+    @swagger_auto_schema(
+        operation_description="List latest reviews",
+        responses={200: ReviewSerializer(many=True)},
+    )
     def get(self, request, format=None):
         try:
             latest_reviews = Review.objects.all()[:4]
@@ -23,8 +33,13 @@ class IndexView(APIView):
 
 
 class ReviewListView(APIView):
+    parser_classes = (MultiPartParser,)
     pagination_class = ReviewListPagination
 
+    @swagger_auto_schema(
+        operation_description="List reviews",
+        responses={200: ReviewListSerializer(many=True)},
+    )
     def get(self, request, format=None):
         try:
             reviews = Review.objects.all()
@@ -37,8 +52,25 @@ class ReviewListView(APIView):
                 {"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
+    @swagger_auto_schema(
+        operation_description="Create a new review",
+        request_body=ReviewSerializer,
+        responses={201: ReviewSerializer()},
+    )
+    def post(self, request, format=None):
+        serializer = ReviewSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class ReviewDetailView(APIView):
+
+    @swagger_auto_schema(
+        operation_description="Retrieve a review",
+        responses={200: ReviewDetailSerializer()},
+    )
     def get(self, request, review_id, format=None):
         try:
             review = Review.objects.get(pk=review_id)
