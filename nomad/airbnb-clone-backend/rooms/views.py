@@ -85,7 +85,10 @@ class AmenityDetail(APIView):
                 AmenitySerializer(updated_amenity).data,
             )
         else:
-            return Response(serializer.errors)
+            return Response(
+                serializer.errors,
+                status=HTTP_400_BAD_REQUEST,
+            )
 
     @swagger_auto_schema(
         operation_description="Delete a specific amenity by ID",
